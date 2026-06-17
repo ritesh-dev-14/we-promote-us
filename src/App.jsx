@@ -2,6 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
 import OurTeam from "./pages/about/OurTeam";
+import Careers from "./pages/about/Careers";
+import Training from "./pages/about/Training";
 import Blog from "./pages/Blog";
 import Portfolio from "./pages/Portfolio";
 import Testimonials from "./pages/Testimonials";
@@ -13,6 +15,8 @@ const App = () => {
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/our-team" element={<OurTeam />} />
+        <Route path="/careers" element={<Careers />} />
+        <Route path="/training" element={<Training />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/testimonials" element={<Testimonials />} />
