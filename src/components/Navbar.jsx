@@ -251,7 +251,7 @@ const Navbar = () => {
                   transition={{ duration: 0.12, ease: "easeOut" }}
                   className="absolute left-0 top-[90px] w-[190px] bg-white border border-slate-100 shadow-xl py-1.5 flex flex-col text-[12.5px] font-bold text-slate-600 rounded-b-md border-t-2 border-t-[#00b4af]"
                 >
-                  {["OUR TEAM", "OUR CULTURE", "CAREERS", "TRAINING"].map(
+                  {["OUR TEAM", "CAREERS", "TRAINING"].map(
                     (item) => (
                       <a
                         key={item}
