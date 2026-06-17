@@ -275,19 +275,19 @@ const Navbar = () => {
           </div>
 
           <a
-            href="#blog"
+            href="blog"
             className="hover:text-[#00b4af] transition-colors duration-200"
           >
             BLOG
           </a>
           <a
-            href="#portfolio"
+            href="portfolio"
             className="hover:text-[#00b4af] transition-colors duration-200"
           >
             PORTFOLIO
           </a>
           <a
-            href="#testimonials"
+            href="testimonials"
             className="hover:text-[#00b4af] transition-colors duration-200"
           >
             TESTIMONIALS

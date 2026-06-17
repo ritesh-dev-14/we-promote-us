@@ -2,116 +2,140 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const StoriesSection = () => {
-  // Case studies data extracted directly with absolute textual mapping from your mockups
   const stories = [
     {
+      id: "case-01",
       company: "G-Crown Jewellery",
-      title: "How We Scaled Luxury E-Commerce Revenue by 340% via Omnichannel Marketing",
+      title: "Scaling Luxury E-Commerce Revenue by 340% via Omnichannel Infrastructure",
       description:
-        "Struggling with inconsistent conversions and high acquisition costs, G-Crown needed a complete digital transformation. We redesigned their sales funnel, integrated advanced AI audience tracking, and optimized their local and global SEO matrices.",
+        "Struggling with fragmented conversions and volatile acquisition overhead, G-Crown required a complete system overhaul. We re-engineered their pipeline funnel physics, deployed advanced telemetry tracking, and optimized their structural global search indexes.",
       metrics: [
-        { label: "Revenue Growth", value: "+340%", color: "text-emerald-600 bg-emerald-50" },
-        { label: "Cost Per Lead", value: "-45%", color: "text-amber-600 bg-amber-50" },
+        { label: "Revenue Yield", value: "+340%" },
+        { label: "Acquisition Cost", value: "-45%" },
       ],
-      image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=600",
-      tags: ["E-Commerce SEO", "Meta Ads", "CRO"],
+      image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=1200",
+      tags: ["E-Commerce Architecture", "Meta Deployment", "CRO Matrix"],
+      slug: "/case-studies/g-crown-jewellery"
     },
     {
-      company: "Hotel Shiv Ganga, Rishikesh",
-      title: "Driving 4.5x Direct Booking Volume & Transforming Local Search Visibility",
+      id: "case-02",
+      company: "Hotel Shiv Ganga",
+      title: "Driving 4.5x Direct Booking Channels & Securing Search Dominance",
       description:
-        "Over-reliant on third-party OTA platforms charging heavy commissions, Hotel Shiv Ganga wanted a custom direct booking engine ecosystem. Our team engineered high-performance landing pages and implemented localized hyper-targeted search blueprints.",
+        "Over-reliant on high-commission third-party OTA platforms, Hotel Shiv Ganga deployed our custom direct-booking engine. Our engineers designed high-velocity conversion nodes and executed localized search visibility blueprints.",
       metrics: [
-        { label: "Direct Bookings", value: "4.5x More", color: "text-sky-600 bg-sky-50" },
-        { label: "Local Map Rank", value: "Top #3", color: "text-indigo-600 bg-indigo-50" },
+        { label: "Direct Booking Volume", value: "4.5x Yield" },
+        { label: "Local Index Position", value: "Top #3" },
       ],
-      image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600",
-      tags: ["Local SEO", "PPC Campaign", "Web Dev"],
+      image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1200",
+      tags: ["Local Maps Engine", "Targeted PPC", "Platform Dev"],
+      slug: "/case-studies/hotel-shiv-ganga"
     },
   ];
 
   return (
-    <section className="w-full bg-[#f8fafc]/60 py-24 px-6 md:px-12 lg:px-24 font-sans antialiased select-none overflow-hidden">
-      <div className="max-w-[1320px] mx-auto flex flex-col items-center">
+    <section className="w-full bg-[#FFFFFF] py-24 px-6 md:px-12 lg:px-20 font-sans antialiased text-[#0F172A]">
+      <div className="max-w-4xl mx-auto">
         
-        {/* SECTION CORE HEADING PLATE */}
-        <div className="text-center mb-16 max-w-3xl">
-          <h2 className="text-[#10223d] text-[38px] md:text-[44px] font-black tracking-tight leading-none">
-            Our Success Stories
+        {/* STRUCTURAL HEADER BLOCK */}
+        <div className="mb-20 text-center md:text-left">
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#0F172A]">
+            Case studies in scale.
           </h2>
-          <p className="mt-4 text-slate-600 font-semibold text-[15.5px] md:text-[16.5px] tracking-wide leading-relaxed">
-            Real clients. Real metrics. See how our high-performance marketing engines, data-driven frameworks, 
-            and design optimizations create measurable business value worldwide.
-          </p>
         </div>
 
-        {/* DOUBLE-COLUMN CASE STUDY CARDS GRID */}
-        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10">
-          {stories.map((story, index) => (
-            <div
-              key={index}
-              className="bg-white border border-slate-200/70 rounded-2xl flex flex-col justify-between overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-slate-300/60"
-            >
-              {/* Card Main Image Body Layout Block */}
-              <div>
-                <div className="w-full aspect-[16/9] overflow-hidden bg-slate-100 border-b border-slate-100 relative group">
-                  <img
-                    src={story.image}
-                    alt={story.company}
-                    className="w-full h-full object-cover select-none pointer-events-none transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute top-4 left-4 bg-[#10223d] text-white font-extrabold text-[11px] tracking-widest px-3.5 py-1.5 rounded-md uppercase shadow-sm">
-                    {story.company}
+        {/* HIGH-END INTERACTIVE GRID */}
+        <div className="space-y-20">
+          {stories.map((story, idx) => {
+            const isEven = idx % 2 === 0;
+            return (
+              <a
+                href={story.slug}
+                key={story.id}
+                className="block group relative w-full grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center cursor-pointer"
+              >
+                {/* IMAGE COMPONENT WITH FLUID HOVER MASKS */}
+                <div className={`col-span-12 md:col-span-5 ${!isEven ? 'md:order-last' : ''}`}>
+                  <div className="w-full aspect-[4/3] rounded-xl overflow-hidden bg-[#FDFBF7] border border-[#F1E4D1] relative">
+                    
+                    {/* Dark Editorial Image Styling */}
+                    <motion.img
+                      src={story.image}
+                      alt={story.company}
+                      variants={{
+                        hover: { scale: 1.04 }
+                      }}
+                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                      className="w-full h-full object-cover filter contrast-[102%] brightness-[0.95]"
+                    />
+
+                    {/* Subtle warm overlay that deepens on hover */}
+                    <div className="absolute inset-0 bg-[#F59E0B]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none mix-blend-multiply" />
+                    
+                    {/* Permanent clean branding label */}
+                    <div className="absolute bottom-4 left-4 bg-[#0F172A] text-white px-3 py-1 rounded-md shadow-xs">
+                      <p className="text-[10px] font-mono font-bold uppercase tracking-wider">
+                        {story.company}
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                {/* Card Context Information Canvas */}
-                <div className="p-8 pb-4">
-                  {/* Categorization Tags Track */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {story.tags.map((tag, tIdx) => (
-                      <span key={tIdx} className="text-slate-500 font-bold text-[11.5px] tracking-wider bg-slate-100 px-2.5 py-1 rounded-md uppercase">
-                        {tag}
+                {/* CONTENT ELEMENT CONTAINER */}
+                <div className="col-span-12 md:col-span-7 space-y-6">
+                  
+                  <div className="space-y-3">
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2">
+                      {story.tags.map((tag, tIdx) => (
+                        <span 
+                          key={tIdx} 
+                          className="text-[10px] font-mono font-medium tracking-wide text-[#64748B] bg-[#F8FAFC] border border-slate-200/60 px-2.5 py-0.5 rounded"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Dynamic Header Block with Animated Inline SVG Arrow */}
+                    <h3 className="text-2xl font-extrabold text-[#0F172A] tracking-tight leading-snug flex items-start gap-2">
+                      <span className="group-hover:text-[#D97706] transition-colors duration-200">
+                        {story.title}
                       </span>
+                      <svg 
+                        className="w-5 h-5 mt-1 text-[#F59E0B] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor" 
+                        strokeWidth={3}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </h3>
+
+                    <p className="text-[#566171] text-sm md:text-base leading-relaxed font-normal">
+                      {story.description}
+                    </p>
+                  </div>
+
+                  {/* Clean Integrated Data Panels */}
+                  <div className="grid grid-cols-2 gap-6 pt-6 border-t border-slate-100">
+                    {story.metrics.map((metric, mIdx) => (
+                      <div key={mIdx} className="space-y-0.5">
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-[#94A3B8] block">
+                          {metric.label}
+                        </span>
+                        <span className="text-xl md:text-2xl font-black text-[#F59E0B] tracking-tight block">
+                          {metric.value}
+                        </span>
+                      </div>
                     ))}
                   </div>
 
-                  {/* Primary Narrative Headings */}
-                  <h3 className="text-[#10223d] font-black text-[21px] md:text-[23px] tracking-tight leading-snug mb-3">
-                    {story.title}
-                  </h3>
-                  <p className="text-slate-600 font-medium text-[14.5px] leading-[1.65] mb-6">
-                    {story.description}
-                  </p>
                 </div>
-              </div>
-
-              {/* Dynamic Metric Output Panel & Bottom Button Shelf */}
-              <div className="px-8 pb-8 pt-0">
-                <div className="grid grid-cols-2 gap-4 border-t border-b border-slate-100/80 py-5 mb-6">
-                  {story.metrics.map((metric, mIdx) => (
-                    <div key={mIdx} className="flex flex-col items-start">
-                      <span className="text-slate-400 font-bold text-[11.5px] uppercase tracking-wider mb-1">
-                        {metric.label}
-                      </span>
-                      <span className={`font-black text-[22px] md:text-[24px] tracking-tight px-3 py-0.5 rounded-lg ${metric.color}`}>
-                        {metric.value}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                <motion.button
-                  whileHover={{ y: -1 }}
-                  whileTap={{ scale: 0.99 }}
-                  className="w-full bg-[#f2a115] hover:bg-[#de910b] text-white font-extrabold text-[13px] tracking-widest py-4 rounded-xl transition-all duration-150 uppercase shadow-[0_4px_15px_rgba(242,161,21,0.25)]"
-                >
-                  Read Full Case Study
-                </motion.button>
-              </div>
-
-            </div>
-          ))}
+              </a>
+            );
+          })}
         </div>
 
       </div>
