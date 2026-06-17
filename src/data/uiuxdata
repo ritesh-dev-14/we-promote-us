@@ -1,0 +1,40 @@
+const uiuxData = {
+  heroTitle: "UI/UX Design Services",
+  heroDescription:
+    "Create intuitive user experiences that drive engagement and conversions.",
+
+  heroImage:
+    "https://images.unsplash.com/photo-1558655146-9f40138edfeb",
+
+  aboutTitle: "Bring Your Vision To Life",
+  aboutDescription:
+    "Our UI/UX experts create seamless digital experiences focused on usability and business growth.",
+
+  processTitle: "Our UI/UX Design Process",
+
+  processItems: [
+    {
+      title: "Business Discovery",
+      description: "Understanding business goals and user needs.",
+    },
+    {
+      title: "User Research",
+      description: "Researching target audience behavior.",
+    },
+    {
+      title: "Wireframing",
+      description: "Creating structure and user flows.",
+    },
+    {
+      title: "Testing",
+      description: "Validating designs before launch.",
+    },
+  ],
+
+  ctaTitle: "Let's Discuss Your Project",
+  ctaDescription:
+    "Ready to create exceptional user experiences for your customers?",
+  ctaButton: "Get Free Consultation",
+};
+
+export default uiuxData;
