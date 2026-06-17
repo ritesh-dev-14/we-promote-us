@@ -1,60 +1,69 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
-import logoimg from "../assets/logo.png"
+import logoimg from "../assets/logo.png";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(null); // 'services', 'about', or null
   const [activeServiceTab, setActiveServiceTab] = useState(
     "DESIGN & DEVELOPMENT",
   );
+  const navigate = useNavigate();
 
   // Highly Structured Professional Service Content Data Mapping
   const serviceContent = {
     "DIGITAL MARKETING": {
       col1Title: "Search Engine Optimization",
       col1Items: [
-        "SEO Audits & Strategy",
-        "On-Page Optimization",
-        "Technical SEO Frameworks",
-        "Local SEO Architecture",
+        "White lable SEO",
+        "Local SEO",
+        "ECommerce SEO",
+        "Dental SEO",
+        "Fashion SEO",
+        "Law Firm SEO",
+        "Locksmith SEO",
+        "Roofing SEO",
+        "Real Estate SEO",
+        "Blockchain SEO"
       ],
-      col2Title: "Growth & Social Channels",
+      col2Title: "Digital Marketing",
       col2Items: [
-        "Social Media Management",
-        "Content Marketing Strategy",
-        "Influencer Marketing Campaigns",
-        "Brand Copywriting",
+        "Content Marketing Agency",
+        "Affiliate Marketing Services",
       ],
     },
     "PERFORMANCE MARKETING": {
-      col1Title: "Paid Acquisition",
+      col1Title: "Pay Per Click Marketing Services",
       col1Items: [
-        "Google Ads Management",
-        "Meta Ads (FB & Insta)",
-        "LinkedIn Account Based Marketing",
-        "Retargeting Optimization",
+        "Google Ads Management Services",
+        "Social Media Advertising",
+        "Youtube Marketing Agency",
+        "Linkedin Marketing Agency",
+        "Amazon Marketing Agency",
       ],
-      col2Title: "Analytics & Funnels",
+      col2Title: "Social Media",
       col2Items: [
-        "Conversion Rate Optimization",
-        "ROAS Tracking & Dashboards",
-        "Data Layer Analytics",
-        "Lead Gen Funnels",
+        "Social Media Marketing Services",
+        "Online Reputation Management",
       ],
     },
     INDUSTRIES: {
-      col1Title: "B2B & Enterprise Markets",
+      col1Title: "Industries",
       col1Items: [
-        "SaaS Platforms & Infrastructure",
-        "Fintech Ecosystems",
-        "Logistics & Supply Chain Operations",
+        "Dental Marketing Company",
+        "Skin Care Digital Marketing Agency",
+        "Hotel Digital Marketing Agency",
+        "Locksmiths Digital Marketing Agency",
+        "Law Firm Digital Marketing Agency"
       ],
       col2Title: "Consumer Facing Sectors",
       col2Items: [
-        "E-commerce Enterprises",
-        "Healthcare Systems",
-        "Real Estate & Property Portals",
+        "Healthcare Digital Marketing Agency",
+        "Real Estate Digital Marketing Agency",
+        "Roofing Digital Marketing Agency",
+        "Pest Control SEO Agency",
+        "Restaurant SEO Agency",
       ],
     },
     "DESIGN & DEVELOPMENT": {
@@ -77,8 +86,8 @@ const Navbar = () => {
       col1Items: [
         "UI/UX Design Strategy",
         "Responsive Web Design",
-        "Corporate Identity & Brand Design",
-        "High-Converting Landing Pages",
+        "Graphics Services",
+        "Landing Page Design",
       ],
       col2Title: "Website Development Services",
       col2Icon: (
@@ -98,7 +107,7 @@ const Navbar = () => {
       ),
       col2Items: [
         "CMS Web Development",
-        "Enterprise E-commerce Engines",
+        "E-commerce Engines",
         "Headless WordPress Ecosystems",
         "Custom Full Stack Applications",
         "Web Speed & Core Web Vitals Optimization",
@@ -165,25 +174,6 @@ const Navbar = () => {
               <span>+1 (419) 262-1977</span>
             </a>
           </div>
-          
-
-          {/* Micro Language Selector Switcher pill */}
-          {/* <div className="flex items-center gap-1.5 bg-white text-slate-900 font-bold px-3 py-1 rounded-full cursor-pointer hover:bg-gray-100 transition shadow-xs text-[11px]">
-            <span>🇬🇧</span>
-            <span className="tracking-wider">EN</span>
-            <svg
-              className="w-2.5 h-2.5 text-slate-500 stroke-current"
-              fill="none"
-              strokeWidth="3.5"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4.5 15.75l7.5-7.5 7.5 7.5"
-              />
-            </svg>
-          </div> */}
         </div>
       </div>
 
@@ -193,8 +183,11 @@ const Navbar = () => {
         onMouseLeave={() => setActiveMenu(null)}
       >
         {/* Pixel Perfect Vector Logo Mapping Area */}
-        <div className="flex flex-col items-start cursor-pointer group w-58 ">
-          <img src={logoimg} alt="" />
+        <div
+          className="flex flex-col items-start cursor-pointer group w-58"
+          onClick={() => navigate("/")}
+        >
+          <img src={logoimg} alt="Logo" />
         </div>
 
         {/* High-Fidelity Nav Anchors Configuration */}
