@@ -1,100 +1,111 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const OurPartnerShipSection = () => {
-  // Ordered partner dataset perfectly mapping text content to exact company layout slots
+  // Container animation for a clean staggered entrance
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.05, delayChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 12 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.5, ease: [0.215, 0.610, 0.355, 1.000] } 
+    }
+  };
+
   const partners = [
     {
       name: "GoDaddy",
       logo: (
-        <span className="font-sans font-extrabold text-[23px] text-[#00a6a0] tracking-tight flex items-center gap-1">
-          <span className="text-[26px] font-normal leading-none">teal🩵</span>GoDaddy
+        <span className="font-sans font-black text-xl text-[#00a6a0] tracking-tight flex items-center gap-1">
+          <span className="text-2xl font-light">G</span>oDaddy
         </span>
       ),
     },
     {
       name: "Shopify",
       logo: (
-        <span className="font-sans font-black text-[24px] text-[#1a1a1a] tracking-tight flex items-center gap-1.5">
-          <span className="text-[#96bf48] text-[26px]">🛍️</span>shopify
+        <span className="font-sans font-bold text-xl text-[#1a1a1a] tracking-tight flex items-center gap-1">
+          <span className="text-[#95bf47] font-black text-2xl">s</span>hopify
         </span>
       ),
     },
     {
       name: "Namecheap",
       logo: (
-        <span className="font-sans font-bold text-[21px] text-[#4d4d4d] tracking-tight flex items-center gap-1">
-          <span className="text-[#de5a24] font-black text-[23px]">N</span>namecheap
+        <span className="font-sans font-bold text-lg text-[#333333] tracking-tight flex items-center gap-0.5">
+          <span className="text-[#de5a24] font-black text-xl">N</span>amecheap
         </span>
       ),
     },
     {
       name: "HostGator",
       logo: (
-        <span className="font-sans font-black text-[22px] text-[#e67e22] tracking-wide flex items-center gap-1">
-          <span className="text-[24px]">🐊</span>HostGator
+        <span className="font-sans font-extrabold text-lg text-[#11355c] tracking-tight flex items-center gap-1">
+          <span className="text-[#e67e22]">Host</span>Gator
         </span>
       ),
     },
     {
       name: "Adobe",
       logo: (
-        <span className="font-sans font-black text-[23px] text-[#ff0000] tracking-tight flex items-center gap-2">
-          <span className="bg-[#ff0000] text-white px-2 py-0.5 rounded-[3px] text-[15px] font-black italic">A</span>Adobe
+        <span className="font-sans font-black text-lg text-[#ff0000] tracking-tight flex items-center gap-2">
+          <span className="bg-[#ff0000] text-white text-[11px] font-black tracking-normal px-2 py-1 rounded-sm transform -skew-x-12">A</span>
+          <span className="tracking-wide text-slate-900 text-base font-bold">Adobe</span>
         </span>
       ),
     },
     {
       name: "HubSpot",
       logo: (
-        <span className="font-sans font-black text-[24px] text-[#2e3e4c] tracking-tight flex items-center">
-          HubSp<span className="text-[#ff7a59]">o</span>t
+        <span className="font-sans font-bold text-xl text-[#2e3e4c] tracking-tight">
+          HubSp<span className="text-[#ff7a59] font-black">o</span>t
         </span>
       ),
     },
     {
       name: "Google Analytics",
       logo: (
-        <span className="font-sans font-bold text-[19px] text-[#5f6368] leading-[1.1] flex items-center gap-2">
-          <span className="text-[#f4b400] text-[24px] font-black">📊</span>
-          <div className="flex flex-col text-left">
-            <span className="font-bold text-[#5f6368] text-[18px]">Google</span>
-            <span className="font-normal text-slate-500 text-[14px] mt-[-3px]">Analytics</span>
-          </div>
-        </span>
+        <div className="flex flex-col text-left font-sans leading-tight">
+          <span className="font-bold text-slate-700 text-sm tracking-tight">Google</span>
+          <span className="font-normal text-slate-400 text-xs tracking-wider uppercase">Analytics</span>
+        </div>
       ),
     },
     {
       name: "Bing Ads",
       logo: (
-        <span className="font-sans font-bold text-[22px] text-[#2c3e50] tracking-tight flex items-center gap-1.5">
-          <span className="text-[#008375] font-black text-[25px]">b</span>
+        <span className="font-sans font-bold text-lg text-slate-700 tracking-tight">
           <span className="text-[#008375] font-extrabold">Bing</span>
-          <span className="text-[#7f8c8d] font-normal">ads</span>
+          <span className="text-slate-400 font-light">Ads</span>
         </span>
       ),
     },
     {
       name: "Meta",
       logo: (
-        <span className="font-sans font-black text-[25px] text-[#1c1e21] tracking-tight flex items-center gap-2">
-          <span className="text-[#0064e0] text-[26px]">♾️</span>Meta
+        <span className="font-sans font-black text-xl text-[#1c1e21] tracking-tight flex items-center gap-1.5">
+          <span className="text-[#0064e0] text-2xl font-light leading-none">∞</span>
+          <span className="text-slate-900 font-bold tracking-tight">Meta</span>
         </span>
       ),
     },
     {
       name: "Google Partner",
       logo: (
-        <div className="flex items-center gap-2.5 border-l-[6px] border-l-[#4285f4] pl-2 h-[38px]">
+        <div className="flex items-center gap-2 border-l-4 border-l-[#4285f4] pl-2 py-0.5">
           <div className="flex flex-col text-left font-sans leading-none">
-            <span className="font-bold text-[15px] tracking-tight">
-              <span className="text-[#4285f4]">G</span>
-              <span className="text-[#ea4335]">o</span>
-              <span className="text-[#fbbc05]">o</span>
-              <span className="text-[#4285f4]">g</span>
-              <span className="text-[#34a853]">l</span>
-              <span className="text-[#ea4335]">e</span>
+            <span className="font-bold text-[14px] tracking-tight text-slate-800">
+              Google
             </span>
-            <span className="text-slate-500 text-[12px] font-semibold tracking-wide mt-1">Partner</span>
+            <span className="text-slate-400 text-[10px] font-medium tracking-widest uppercase mt-0.5">Partner</span>
           </div>
         </div>
       ),
@@ -102,36 +113,41 @@ const OurPartnerShipSection = () => {
   ];
 
   return (
-    <section className="w-full bg-white pt-20 pb-0 relative font-sans antialiased select-none overflow-hidden">
+    <section className="w-full bg-slate-50/50 pt-16 pb-20 font-sans antialiased select-none overflow-hidden">
       
-      {/* HEADER LABEL AND SUBTEXT CONTAINER */}
-      <div className="w-full max-w-7xl mx-auto px-6 text-center mb-12">
-        <h2 className="text-[#10223d] text-[36px] md:text-[42px] font-black tracking-tight leading-none">
+      {/* HEADER LABEL AND SUBTEXT */}
+      <div className="w-full max-w-6xl mx-auto px-6 text-center mb-16">
+        <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#f2a115] block mb-3">Ecosystem</span>
+        <h2 className="text-slate-900 text-3xl md:text-4xl font-black tracking-tight leading-none uppercase">
           Our Partnerships
         </h2>
-        <p className="mt-3 text-slate-700/90 font-semibold text-[15.5px] md:text-[16.5px] tracking-wide">
-          With our trusted partners, we consistently deliver top-notch digital marketing results!
+        <div className="w-8 h-[2px] bg-slate-300 mx-auto mt-4 mb-4" />
+        <p className="max-w-xl mx-auto text-slate-500 font-normal text-sm sm:text-base leading-relaxed">
+          Integrated with industry-leading platforms to consistently drive scalable digital performance.
         </p>
       </div>
 
-      {/* COMPACT PIXEL-PERFECT PARTNER BRAND MATRIX */}
-      <div className="w-full max-w-[1240px] mx-auto px-6 mb-20">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+      {/* MINIMAL PARTNER BRAND GRID */}
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        className="w-full max-w-6xl mx-auto px-6"
+      >
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
           {partners.map((partner, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-white border border-gray-200/80 rounded-xl h-[105px] flex items-center justify-center p-4 transition-all duration-200 hover:shadow-md hover:border-gray-300"
+              variants={itemVariants}
+              whileHover={{ y: -2, backgroundColor: '#ffffff' }}
+              className="bg-white/60 border border-slate-200/60 rounded-xl h-[90px] flex items-center justify-center p-4 grayscale opacity-75 hover:grayscale-0 hover:opacity-100 transition-all duration-300 shadow-xs hover:shadow-sm"
             >
               {partner.logo}
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
-
-      {/* SYSTEM SECTION SEPARATOR AXIS WITH CENTERED TRIANGLE POINTER */}
-      <div className="w-full relative h-[1px] bg-gray-200/70">
-        <div className="absolute top-[-1px] left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[11px] border-l-transparent border-r-[11px] border-r-transparent border-t-[11px] border-t-[#22c55e]" />
-      </div>
+      </motion.div>
 
     </section>
   );

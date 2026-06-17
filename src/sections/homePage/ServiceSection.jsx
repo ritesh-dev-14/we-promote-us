@@ -1,137 +1,148 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const ServiceSection = () => {
-  // Structured service dataset with absolute textual alignment from your mockups
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   const servicesData = [
     {
-      title: "SEO Services",
-      subtitle: "Increase Your Organic Growth",
-      desc: "Is your business struggling with Poor Online Visibility? Want to enhance your organic reach, whether locally or in eCommerce? Our SEO experts specialize in growth marketing and have successfully ranked over 1.5 million keywords for our clients, helping them achieve outstanding visibility in search results.",
-      features: ["Local SEO", "Link Building", "On Page SEO", "Ecommerce SEO"],
-      buttonColor: "bg-[#f2a115] hover:bg-[#de910b] shadow-[0_5px_15px_rgba(242,161,21,0.3)]",
-      icon: (
-        <svg className="w-8 h-8 text-[#00b4af]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-          <rect x="2" y="3" width="20" height="14" rx="2" />
-          <line x1="2" y1="7" x2="22" y2="7" />
-          <circle cx="10" cy="12" r="2" />
-          <path d="M14 15l3 3" />
-        </svg>
-      )
+      title: "Enterprise SEO",
+      tagline: "High-Intent Organic Scale",
+      desc: "We fix technical indexing bottlenecks, optimize architecture, and build programmatic models to secure premium search visibility across your core customer acquisition funnels.",
+      features: ["Technical Crawl Budget Audits", "Programmatic SEO Architecture", "Data-Driven Link Building", "Core Web Vitals Refinement"],
+      metric: "1.5M+",
+      metricSub: "Keywords Ranked #1"
     },
     {
-      title: "PPC Advertising",
-      subtitle: "Generate More Leads & Sales",
-      desc: "Want the best in PPC? Our elite team maximizes ROAS through expert search, smart campaigns, and shopping ads. We build ROI-driven PPC campaigns. With millions of conversions and proven growth strategies, we deliver unmatched results. Partner with us and watch your leads, sales, and success skyrocket!",
-      features: ["Google Ads", "Facebook Ads", "LinkedIn Ads", "Instagram Ads"],
-      buttonColor: "bg-[#f2a115] hover:bg-[#de910b] shadow-[0_5px_15px_rgba(242,161,21,0.3)]",
-      icon: (
-        <svg className="w-8 h-8 text-[#4285f4]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="9" />
-          <path d="M12 3v9l4.5 4.5" />
-          <path d="M12 12H7" />
-        </svg>
-      )
+      title: "Paid Performance",
+      tagline: "Attribution-Driven PPC",
+      desc: "Direct-response advertising systems engineered across enterprise search channels. We deploy exact server-side attribution tracking models to drastically lower your target CAC.",
+      features: ["Google Ads & Search 360", "Meta Conversion Tuning", "B2B LinkedIn Pipelines", "Server-Side Conversion Tracking"],
+      metric: "4.8x",
+      metricSub: "Average Verified ROAS"
     },
     {
-      title: "Web Development",
-      subtitle: "Websites Built for Success",
-      desc: "Our expert developers provide exceptional front-end and back-end web development, design, and programming services. With a proven track record of successful global projects, we turn ideas into reality, delivering innovative, tailored solutions to meet your needs and drive your digital success. Let's create greatness!",
-      features: ["Ecommerce Development", "Speed Optimization", "WordPress Development", "Shopify Development"],
-      buttonColor: "bg-[#f2a115] hover:bg-[#de910b] shadow-[0_5px_15px_rgba(242,161,21,0.3)]",
-      icon: (
-        <svg className="w-8 h-8 text-[#f2a115]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-          <path d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
-          <path d="M12 4.5l-2 15" />
-        </svg>
-      )
+      title: "Full-Stack Web Engineering",
+      tagline: "High-Performance Infrastructure",
+      desc: "Bespoke web applications and ultra-fast headless storefronts built with modern styling frameworks. Optimized for rapid page loads, clean data flow, and secure API integrations.",
+      features: ["Headless CMS Implementations", "Next.js & React Architectures", "Custom Enterprise Portals", "API & Webhook Integrations"],
+      metric: "99/100",
+      metricSub: "Mobile Performance Score"
     },
     {
-      title: "Social Media Marketing",
-      subtitle: "Grow Your Online Presence",
-      desc: "Social media isn't just about posting—it's about connecting. We're a social media management agency that takes your social channels to the next level by integrating omnichannel strategy. Through the intelligent use of AI, data-driven insights, and agile responses to market shifts, we craft social media campaigns that not only stand out but align perfectly with your broader digital objectives.",
-      features: ["Instagram Marketing", "YouTube Marketing", "Facebook Marketing", "LinkedIn Marketing"],
-      buttonColor: "bg-[#605a41] hover:bg-[#4f4a35] shadow-[0_5px_15px_rgba(96,90,65,0.3)]", // Custom variant color configuration as verified on your fourth block element mockup
-      icon: (
-        <svg className="w-8 h-8 text-[#e06666]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-        </svg>
-      )
+      title: "Growth Marketing",
+      tagline: "Scalable Distribution Loops",
+      desc: "Convert generic web traction into predictable revenue distribution channels. We combine systematic creative testing with telemetry pipelines to monitor and sustain user retention loops.",
+      features: ["A/B Creative Variant Testing", "Distribution Funnel Design", "Telemetry System Infrastructure", "Retention Mechanics Optimization"],
+      metric: "+320%",
+      metricSub: "Avg Growth Yield YoY"
     }
   ];
 
   return (
-    <section className="w-full bg-white py-24 px-6 md:px-12 lg:px-24 font-sans antialiased select-none overflow-hidden">
-      <div className="max-w-[1320px] mx-auto flex flex-col items-center">
+    <section className="w-full bg-[#F8FAFC] py-28 px-6 md:px-12 lg:px-20 font-sans antialiased text-[#0F172A] relative">
+      <div className="max-w-6xl mx-auto space-y-12">
         
-        {/* HEADER BRAND HUD LABELS */}
-        <div className="text-center mb-16 max-w-4xl">
-          <h2 className="text-[#10223d] text-[38px] md:text-[44px] font-black tracking-tight leading-none">
-            Our Services
-          </h2>
-          <p className="mt-4 text-slate-700/95 font-semibold text-[15.5px] md:text-[16.5px] tracking-wide leading-relaxed max-w-[960px] mx-auto">
-            We excel in driving marketing success and fostering organic growth through exceptional design and development. By mastering 
-            the what, why, and how of your vision, we create innovative solutions that inspire impact and deliver extraordinary results.
-          </p>
+        {/* STRUCTURAL HEADER ROW */}
+        <div className="w-full bg-white border border-[#E2E8F0] rounded-xl p-8 md:p-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-center shadow-[0_2px_8px_rgba(15,23,42,0.01)]">
+          <div className="md:col-span-5 space-y-2">
+            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#FBBF24]/10 border border-[#FBBF24]/30 rounded-md">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B]" />
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#B45309]">Capabilities Matrix</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#0F172A]">
+              Our Core Services.
+            </h2>
+          </div>
+          <div className="md:col-span-7 border-t md:border-t-0 md:border-l border-[#E2E8F0] pt-4 md:pt-0 md:pl-8">
+            <p className="text-[#64748B] text-sm md:text-base font-normal leading-relaxed">
+              Rigorous technical optimization, direct-response performance marketing systems, and high-trust engineering infrastructure custom built for enterprise scalability and predictable revenue growth.
+            </p>
+          </div>
         </div>
 
-        {/* 2x2 SERVICES CARD GRID PLATFORM */}
-        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {servicesData.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white border border-slate-200/80 rounded-2xl flex flex-col justify-between overflow-hidden transition-all duration-200 hover:shadow-lg"
-            >
-              <div>
-                {/* Embedded Header HUD Plate */}
-                <div className="bg-[#f8fafc] px-8 py-6 flex items-center gap-4 border-b border-slate-100">
-                  <div className="p-2.5 bg-white rounded-xl shadow-sm border border-slate-100">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-[#10223d] text-[24px] font-black tracking-tight">
-                    {service.title}
-                  </h3>
-                </div>
+        {/* COMPACT MODULAR LIST TRACK */}
+        <div 
+          className="space-y-3"
+          onMouseLeave={() => setHoveredIndex(null)}
+        >
+          {servicesData.map((service, index) => {
+            const isHovered = hoveredIndex === index;
+            
+            return (
+              <div
+                key={index}
+                onMouseEnter={() => setHoveredIndex(index)}
+                className="w-full bg-white border border-[#E2E8F0] rounded-xl p-6 md:p-8 flex flex-col lg:flex-row items-stretch justify-between gap-6 md:gap-8 relative transition-all duration-200 shadow-[0_2px_6px_rgba(15,23,42,0.01)] hover:shadow-md cursor-pointer overflow-hidden"
+              >
+                {/* Yellow Hover Top Border Indicator */}
+                <div className={`absolute top-0 left-0 right-0 h-[3px] bg-[#F59E0B] transition-transform duration-300 origin-left ${isHovered ? 'scale-x-100' : 'scale-x-0'}`} />
 
-                {/* Content Core Body Area */}
-                <div className="p-8">
-                  <h4 className="text-[#10223d] text-[16.5px] font-black tracking-wide mb-3">
-                    {service.subtitle}
-                  </h4>
-                  <p className="text-slate-600/95 font-medium text-[14.5px] leading-[1.65] mb-6 min-h-[120px] lg:min-h-[96px]">
+                {/* Left: Core Structural Text Column */}
+                <div className="lg:w-[45%] flex flex-col justify-between space-y-4">
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2.5">
+                      <span className="text-xs font-mono font-bold text-[#64748B] bg-[#F8FAFC] border border-[#E2E8F0] w-6 h-6 rounded flex items-center justify-center">
+                        0{index + 1}
+                      </span>
+                      <h3 className="text-xl font-bold tracking-tight text-[#0F172A] transition-colors duration-200 group-hover:text-[#F59E0B]">
+                        {service.title}
+                      </h3>
+                    </div>
+                    <p className="text-xs font-bold text-[#F59E0B] tracking-wide uppercase">
+                      {service.tagline}
+                    </p>
+                  </div>
+                  <p className="text-[#64748B] text-sm leading-relaxed font-normal">
                     {service.desc}
                   </p>
+                </div>
 
-                  {/* Feature Cross Grid Setup */}
-                  <div className="grid grid-cols-2 gap-x-4 gap-y-3.5 mb-2">
+                {/* Center: System Performance Inline Features */}
+                <div className="lg:w-[32%] bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-5 flex flex-col justify-center space-y-3">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#64748B] block border-b border-[#E2E8F0] pb-1.5">
+                    // Included Implementations
+                  </span>
+                  <div className="space-y-2">
                     {service.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-2">
-                        {/* Custom High-Parity Gold Chevron Tick Markup */}
-                        <svg className="w-4 h-4 text-[#f2a115] shrink-0" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      <div key={idx} className="flex items-center gap-2.5 text-xs font-semibold text-[#64748B]">
+                        <svg className="w-3.5 h-3.5 text-[#F59E0B] shrink-0" fill="none" stroke="currentColor" strokeWidth="3.5" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                         </svg>
-                        <span className="text-slate-700/90 font-bold text-[14px] tracking-wide">
-                          {feature}
-                        </span>
+                        <span className="text-[#0F172A] text-[13px]">{feature}</span>
                       </div>
                     ))}
                   </div>
                 </div>
-              </div>
 
-              {/* Action Button Shelf Area */}
-              <div className="px-8 pb-8 pt-2">
-                <motion.button
-                  whileHover={{ y: -1 }}
-                  whileTap={{ scale: 0.99 }}
-                  className={`${service.buttonColor} text-white font-extrabold text-[12.5px] tracking-widest px-9 py-4 rounded-xl transition-all duration-150 uppercase`}
-                >
-                  Learn More
-                </motion.button>
-              </div>
+                {/* Right: Technical Yield Performance Metric Panel */}
+                <div className="lg:w-[18%] border border-[#E2E8F0] lg:border-l-2 lg:border-l-[#F59E0B] rounded-lg lg:rounded-r-lg lg:rounded-l-none p-5 flex flex-col justify-center items-center lg:items-end text-center lg:text-right bg-gradient-to-br from-white to-[#F8FAFC]">
+                  <span className="text-3xl md:text-4xl font-black tracking-tight text-[#0F172A] leading-none">
+                    {service.metric}
+                  </span>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#64748B] mt-1">
+                    {service.metricSub}
+                  </span>
+                </div>
 
-            </div>
-          ))}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* COMPACT INTERACTIVE CALL TO ACTION FOOTER */}
+        <div className="bg-white border border-[#E2E8F0] rounded-xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_2px_8px_rgba(15,23,42,0.01)]">
+          <div className="space-y-1 text-center md:text-left">
+            <h4 className="text-[#0F172A] font-bold text-base tracking-tight">
+              Ready to implement custom marketing infrastructure?
+            </h4>
+            <p className="text-[#64748B] text-sm font-normal">
+              Partner with us to optimize your platform architecture, run exact tracking pipelines, and scale organic search metrics.
+            </p>
+          </div>
+          <button className="bg-[#0F172A] hover:bg-[#1E293B] text-white font-bold text-xs tracking-wider px-6 py-3.5 rounded-lg uppercase shadow-sm transition-all duration-150 shrink-0 w-full md:w-auto active:scale-[0.98] border border-transparent">
+            Schedule Architecture Session
+          </button>
         </div>
 
       </div>

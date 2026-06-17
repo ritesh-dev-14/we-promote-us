@@ -4,138 +4,126 @@ import { motion, AnimatePresence } from 'framer-motion';
 const ProcessSection = () => {
   const [activeStep, setActiveStep] = useState(0);
 
-  // Exact step layout definitions matching your layout structure
   const steps = [
     {
       id: "01",
-      label: "Kick-Off Call",
-      icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 00-1.02.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z" />
-        </svg>
-      ),
-      title: "Kick-Off Call",
-      desc: "Your journey begins with a dedicated, in-depth call where we take the time to truly understand your brand's essence, mission, and vision. During this personalized session, we'll explore your short-term and long-term goals, identify key challenges, and discuss the competitive landscape of your industry. The insights we gather here become the cornerstone for building a strategy that sets you up for success.",
-      image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=600"
+      label: "Discovery",
+      title: "Kick-Off Discovery & Deep Architectural Audit",
+      desc: "Every partnership begins with a deep technical audit. We break down near-term commercial targets, map out structural performance bottlenecks, and analyze your digital landscape to establish a definitive growth baseline.",
+      output: "Strategic Roadmap & Friction Report"
     },
     {
       id: "02",
-      label: "Strategic Planning",
-      icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
-        </svg>
-      ),
-      title: "Strategic Planning",
-      desc: "Data meets creativity. We align competitive multi-channel market audits with targeted traffic blueprints, ensuring your budget maps perfectly to scale. Every decision is structural, documented, and configured for predictable digital execution.",
-      image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=600"
+      label: "Engineering",
+      title: "Strategic Infrastructure & Pipeline Planning",
+      desc: "Data layers are aligned directly with marketing systems. We architect multi-channel distribution networks configured to bypass generic acquisition paths and protect structural return margins.",
+      output: "Data Topology & Funnel Architecture"
     },
     {
       id: "03",
-      label: "Clear Communication",
-      icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-        </svg>
-      ),
-      title: "Clear Communication",
-      desc: "Zero black boxes. You receive straightforward milestone updates, interactive tracking loops, and shared alignment rooms. We communicate in direct outcomes, ensuring your product and team move forward as one.",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600"
+      label: "Velocity",
+      title: "Continuous Sprint Momentum & Shared Telemetry",
+      desc: "We eliminate hidden data pools and black-box tracking. Your engineering and product leaders receive real-time updates, custom shared documentation spaces, and clear performance telemetry.",
+      output: "Integrated Operational Dashboard"
     },
     {
       id: "04",
-      label: "Result-Oriented",
-      icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L12 15v5z" />
-        </svg>
-      ),
-      title: "Result-Oriented Execution",
-      desc: "We focus completely on production velocity and structural ROI tracking. By optimizing modern application loops and marketing infrastructure, we build secure systems that turn baseline user intent directly into scalable performance.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600"
+      label: "Yield",
+      title: "Result-Oriented Platform Optimization",
+      desc: "We pivot entirely toward scaled performance. By refining application layers, server response pipelines, and indexing structures, we convert basic traffic intent into sustainable revenue metrics.",
+      output: "Production-Ready Conversion Engine"
     }
   ];
 
   return (
-    <section className="w-full bg-white py-24 px-6 md:px-12 lg:px-24 font-sans antialiased select-none overflow-hidden">
-      <div className="max-w-[1300px] mx-auto flex flex-col items-center">
+    <section className="w-full bg-[#FFFFFF] py-24 px-6 md:px-12 lg:px-20 font-sans antialiased text-[#0F172A]">
+      <div className="max-w-4xl mx-auto">
         
-        {/* SECTION HEADER BLOCK */}
-        <h2 className="text-[#0b2240] text-[36px] md:text-[44px] lg:text-[48px] font-black tracking-tight leading-tight text-center max-w-[850px] mb-20">
-          How We Work To Make Your Business <br />
-          <span className="text-[#00b4af]">#1 In The Digital World</span>
-        </h2>
+        {/* REFINED HEADER LAYER - OPTIMIZED VERTICAL SPACING */}
+        <div className="space-y-2 mb-14 text-center md:text-left">
+          <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#F59E0B]/10 border border-[#F59E0B]/20 rounded-md">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B]" />
+            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#D97706]">Deployment Workflow</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-black tracking-tight text-[#0F172A]">
+            How we scale your digital presence.
+          </h2>
+        </div>
 
-        {/* STEP-BY-STEP PROGRESS BAR TRACK CONTAINER */}
-        <div className="w-full max-w-[1100px] relative flex flex-col md:flex-row items-center justify-between gap-12 md:gap-4 mb-24">
-          
-          {/* Exact Structural Timeline Connector Track Line */}
-          <div className="absolute top-[34px] left-[10%] right-[10%] h-[2px] bg-slate-100 hidden md:block z-0" />
-
+        {/* LINEAR HORIZONTAL CONTROL TRACK */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
           {steps.map((step, idx) => {
             const isActive = activeStep === idx;
             return (
-              <div 
+              <button
                 key={step.id}
                 onClick={() => setActiveStep(idx)}
-                className="flex flex-col items-center relative z-10 cursor-pointer group flex-1"
+                className="w-full text-left focus:outline-none group relative"
               >
-                {/* Outlined Dynamic Numeric Bubble Frame */}
-                <div className={`w-16 h-16 rounded-full flex items-center justify-center bg-white border-2 text-[18px] font-extrabold transition-all duration-300 shadow-sm ${
-                  isActive 
-                    ? 'border-[#00b4af] text-[#00b4af] scale-110 ring-4 ring-[#00b4af]/10' 
-                    : 'border-slate-200 text-slate-800 group-hover:border-slate-400'
-                }`}>
-                  {step.id}
+                {/* Visual Upper Bar Meter - Using Single Amber Accent */}
+                <div className="w-full h-[3px] bg-[#E2E8F0] rounded-full relative overflow-hidden mb-3">
+                  <motion.div 
+                    className="absolute inset-0 bg-[#F59E0B]"
+                    initial={false}
+                    animate={{ x: isActive ? "0%" : "-100%" }}
+                    transition={{ duration: 0.25, ease: "easeInOut" }}
+                  />
                 </div>
 
-                {/* Micro Action Icon Presentation Layer */}
-                <div className={`mt-4 transition-colors duration-300 ${
-                  isActive ? 'text-[#00b4af]' : 'text-slate-400 group-hover:text-slate-600'
-                }`}>
-                  {step.icon}
+                <div className="space-y-0.5 pl-0.5">
+                  <span className={`block font-mono text-[10px] font-bold tracking-wider transition-colors ${isActive ? 'text-[#F59E0B]' : 'text-[#94A3B8]'}`}>
+                    PHASE {step.id}
+                  </span>
+                  <span className={`block text-sm font-bold tracking-tight transition-colors ${isActive ? 'text-[#0F172A]' : 'text-[#64748B] group-hover:text-[#334155]'}`}>
+                    {step.label}
+                  </span>
                 </div>
-
-                {/* Descriptive Title Text Block */}
-                <span className="mt-3 text-[15px] font-bold text-[#0b2240] tracking-tight text-center">
-                  {step.label}
-                </span>
-              </div>
+              </button>
             );
           })}
         </div>
 
-        {/* WORKSPACE PREVIEW CARD FRAME CONSOLE */}
-        <div className="w-full max-w-[1150px] min-h-[420px] bg-white rounded-2xl border border-slate-100 shadow-[0_15px_40px_-15px_rgba(0,0,0,0.06)] p-8 md:p-12">
+        {/* FLUID INTERACTIVE CANVAS FRAME - SPATIALLY TIGHTENED */}
+        <div className="w-full bg-[#FDFBF7] border border-[#F1E4D1] rounded-xl p-6 md:p-8 min-h-[260px] flex flex-col justify-between relative overflow-hidden">
+          
+          {/* Subtle Warm Amber/Yellow Geometric Radial Background Pattern */}
+          <div className="absolute inset-0 bg-[radial-gradient(#F59E0B_1px,transparent_1px)] bg-[size:24px_24px] opacity-[0.12] pointer-events-none" />
+
           <AnimatePresence mode="wait">
             <motion.div
               key={activeStep}
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.35 }}
-              className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.18, ease: "easeOut" }}
+              className="relative z-10 flex flex-col md:flex-row md:items-start justify-between gap-8 h-full"
             >
-              {/* Left Segment Column: Informational Text Copy Canvas */}
-              <div className="lg:col-span-7 flex flex-col items-start text-left">
-                <h3 className="text-[#0b2240] font-black text-[24px] md:text-[28px] tracking-tight mb-5 leading-snug">
+              {/* Primary Content Copy Block */}
+              <div className="space-y-3 max-w-xl">
+                <h3 className="text-xl md:text-2xl font-extrabold text-[#0F172A] tracking-tight leading-snug">
                   {steps[activeStep].title}
                 </h3>
-                <p className="text-slate-600 font-medium text-[16px] md:text-[17px] leading-[1.75] mb-8">
+                <p className="text-[#566171] text-sm md:text-[15px] leading-relaxed font-normal">
                   {steps[activeStep].desc}
                 </p>
-                <button className="bg-[#f2a115] hover:bg-[#d98f10] active:scale-[0.98] text-white font-extrabold text-[15px] uppercase tracking-wider px-9 py-4 rounded-full shadow-[0_4px_14px_rgba(242,161,21,0.35)] transition-all">
-                  Contact Us
-                </button>
               </div>
 
-              {/* Right Segment Column: High-Fidelity Action Frame Showcase Component */}
-              <div className="lg:col-span-5 w-full aspect-[4/3] rounded-xl overflow-hidden border border-slate-200 bg-slate-50 relative shadow-inner">
-                <img 
-                  src={steps[activeStep].image} 
-                  alt={steps[activeStep].title} 
-                  className="w-full h-full object-cover select-none pointer-events-none"
-                />
+              {/* Sidebar Action & Output Specifications */}
+              <div className="md:w-56 flex flex-col justify-between h-full space-y-5 md:space-y-0 md:text-right shrink-0 border-t md:border-t-0 md:border-l border-[#EADCC6] pt-5 md:pt-0 md:pl-6">
+                <div className="space-y-0.5">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#94A3B8] block">
+                    Key Deliverable
+                  </span>
+                  <span className="text-sm font-bold text-[#0F172A] block leading-tight">
+                    {steps[activeStep].output}
+                  </span>
+                </div>
+
+                <div className="md:pt-6">
+                  <button className="w-full md:w-auto bg-[#F59E0B] hover:bg-[#D97706] active:scale-[0.99] text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-lg transition-all duration-150 shadow-xs">
+                    Initiate Framework
+                  </button>
+                </div>
               </div>
             </motion.div>
           </AnimatePresence>

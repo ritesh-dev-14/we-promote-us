@@ -1,145 +1,165 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Journey = () => {
-  // Ordered features matching text weights and typography variations directly from your mockup files
+  const [activeIndex, setActiveIndex] = useState(0);
+
   const highlights = [
     {
-      title: "Boost 20x ROI",
-      desc: (
-        <span>
-          Your growth is our top priority. We’re not just about promises — we deliver <strong className="text-[#10223d] font-black">20%+ ROAS</strong>, ensuring every marketing dollar counts.
-        </span>
-      ),
-      icon: (
-        <svg className="w-8 h-8 text-[#f2a115]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      )
+      num: "01",
+      title: "Boost 20x ROI Engine",
+      tagline: "Direct Capital Optimization",
+      desc: "Your business scale is our absolute priority. We architect dedicated acquisition funnels configured to protect conversion performance and secure a predictable target ROAS yield matrix.",
+      details: [
+        { label: "Target Yield", value: "20%+ ROAS" },
+        { label: "Funnel Integrity", value: "Server-Side Verified" },
+        { label: "Ad Spend Efficiency", value: "Maximized" }
+      ]
     },
     {
-      title: "Rank #1 & Stay There",
-      desc: "We don’t just get you to the top of search engines; we keep you there. Dominate your industry with proven SEO expertise that drives organic visibility and traffic.",
-      icon: (
-        <svg className="w-8 h-8 text-[#f2a115]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z" />
-        </svg>
-      )
+      num: "02",
+      title: "Permanent Search Dominance",
+      tagline: "Structural Keyword Equity",
+      desc: "We eliminate short-term keyword positioning spikes. Our engineers target deep programmatic indexing architectures to permanently insulate your domain authority and protect traffic volume.",
+      details: [
+        { label: "Indexing Velocity", value: "Real-time" },
+        { label: "Crawl Efficiency", value: "99.2%" },
+        { label: "Domain Protection", value: "Continuous" }
+      ]
     },
     {
-      title: "Transparent Reporting & Accountability",
-      desc: "No empty promises. You’ll always know where your money is going and how it’s performing, with clear, actionable insights.",
-      icon: (
-        <svg className="w-8 h-8 text-[#f2a115]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-        </svg>
-      )
+      num: "03",
+      title: "Granular Capital Accountability",
+      desc: "No abstract data pools or black-box tracking scripts. We install explicit first-party attribution infrastructure providing clear, uninterrupted data provenance directly to your revenue loops.",
+      tagline: "Attribution Provenance Engine",
+      details: [
+        { label: "Data Loss Margin", value: "0.00%" },
+        { label: "Telemetry Standard", value: "First-Party Node" },
+        { label: "Auditing Overhead", value: "Zero" }
+      ]
     },
     {
-      title: "Proven Expertise Across Industries",
-      desc: "With years of experience and countless success stories, our team knows what it takes to thrive in even the most competitive industries.",
-      icon: (
-        <svg className="w-8 h-8 text-[#f2a115]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      )
+      num: "04",
+      title: "Cross-Vertical Infrastructure",
+      tagline: "Multi-Platform Adaptation",
+      desc: "Deploying deep system specialization across complex corporate sectors. We bypass baseline assumptions to resolve technical structural blockages inside competitive organic indexes.",
+      details: [
+        { label: "System Sync", value: "Multi-Pipeline" },
+        { label: "Latency Ceiling", value: "<12ms" },
+        { label: "Integration Rate", value: "100%" }
+      ]
     }
   ];
 
   return (
-    <section className="w-full bg-white py-24 px-6 md:px-12 lg:px-24 font-sans antialiased select-none overflow-hidden">
-      <div className="max-w-[1400px] mx-auto flex flex-col items-start">
+    <section className="w-full bg-[#FFFFFF] py-32 px-6 md:px-12 lg:px-24 font-sans antialiased text-[#0F172A]">
+      <div className="max-w-6xl mx-auto space-y-20">
         
-        {/* MAIN OVERSIZED TITLE HEADLINE AREA */}
-        <h2 className="text-[#10223d] text-[44px] md:text-[54px] lg:text-[62px] font-black tracking-tight leading-[1.08] max-w-[900px] text-left mb-16">
-          Leading The Way To Your <br />Digital Growth Journey
-        </h2>
+        {/* REFINED ARCHITECTURAL HEADER BLOCK */}
+        <div className="w-full border-b border-[#E2E8F0] pb-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+          <div className="lg:col-span-7 space-y-4">
+            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#FBBF24]/10 border border-[#FDE68A] rounded-md">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B]" />
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#B45309]">Operational Execution</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#0F172A] leading-[1.1]">
+              The Lifecycle of Scale.
+            </h2>
+          </div>
+          <div className="lg:col-span-5">
+            <p className="text-[#64748B] text-sm md:text-base font-normal leading-relaxed">
+              We eliminate chaotic marketing fragmentation. Our frameworks align infrastructure engineering directly with secure consumer acquisition pipelines to yield verifiable fiscal loops.
+            </p>
+          </div>
+        </div>
 
-        {/* CONTENT DUAL COLUMN WORKSPACE ROW */}
-        <div className="w-full grid grid-cols-1 xl:grid-cols-12 gap-12 xl:gap-16 items-start">
+        {/* HIGH-FIDELITY INTERACTIVE CONTROLLER GRID */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* LEFT CONTAINER LAYER: GRID COMPONENT VALUE PROPS */}
-          <div className="xl:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-12">
-            {highlights.map((item, idx) => (
-              <div key={idx} className="flex flex-col items-start text-left">
-                {/* Clean Custom Outlined Structural Icon Frame */}
-                <div className="mb-4 p-2 bg-orange-50/50 rounded-xl border border-orange-100/40">
-                  {item.icon}
-                </div>
-                {/* Title Segment Block */}
-                <h3 className="text-[#10223d] font-black text-[20px] md:text-[22px] tracking-tight mb-3">
-                  {item.title}
-                </h3>
-                {/* Content Paragraph Block */}
-                <p className="text-slate-600 font-medium text-[15px] leading-[1.65]">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
+          {/* LEFT COLUMN: CRISP SELECTABLE TIMELINE INTERFACES */}
+          <div className="lg:col-span-5 space-y-3">
+            {highlights.map((item, idx) => {
+              const isActive = activeIndex === idx;
+              return (
+                <button
+                  key={idx}
+                  onClick={() => setActiveIndex(idx)}
+                  className={`w-full text-left p-6 rounded-xl border transition-all duration-300 relative overflow-hidden flex items-start gap-4 focus:outline-none ${
+                    isActive 
+                      ? 'bg-[#F8FAFC] border-[#F59E0B] shadow-[0_4px_20px_rgba(245,158,11,0.04)]' 
+                      : 'bg-white border-[#E2E8F0] hover:border-[#CBD5E1]'
+                  }`}
+                >
+                  {/* Left-Side Colored Accent Stripe for Active State */}
+                  <div className={`absolute left-0 top-0 bottom-0 w-[3px] bg-[#F59E0B] transition-transform duration-300 origin-top ${isActive ? 'scale-y-100' : 'scale-y-0'}`} />
+
+                  <span className={`text-xs font-mono font-bold px-2 py-0.5 rounded border transition-colors duration-200 ${
+                    isActive 
+                      ? 'bg-[#FFFBEB] text-[#F59E0B] border-[#FEF3C7]' 
+                      : 'bg-[#F8FAFC] text-[#64748B] border-[#E2E8F0]'
+                  }`}>
+                    {item.num}
+                  </span>
+
+                  <div className="space-y-1">
+                    <h3 className="text-base font-bold tracking-tight text-[#0F172A]">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-[#64748B] font-medium uppercase tracking-wider">
+                      {item.tagline}
+                    </p>
+                  </div>
+                </button>
+              );
+            })}
           </div>
 
-          {/* RIGHT CONTAINER LAYER: HIGH-FIDELITY LAYERED INTERFACE WIRE MOCKUPS */}
-          <div className="xl:col-span-5 w-full flex items-center justify-center relative pt-12 xl:pt-4 select-none pointer-events-none">
+          {/* RIGHT COLUMN: DYNAMIC PREVIEW CANVAS WITH GRAPHIC DATA SPLITS */}
+          <div className="lg:col-span-7 bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-8 lg:p-10 min-h-[420px] flex flex-col justify-between relative overflow-hidden">
             
-            {/* Desktop UI Frame Representation Component */}
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="w-full max-w-[520px] aspect-[16/10] bg-slate-900 rounded-2xl p-2 shadow-2xl relative border border-slate-800"
-            >
-              <div className="w-full h-full bg-white rounded-lg overflow-hidden flex flex-col border border-slate-200">
-                {/* Browser Inner Top Header Bar Wire Frame */}
-                <div className="w-full h-6 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-1.5">
-                  <div className="w-2 h-2 rounded-full bg-red-400" />
-                  <div className="w-2 h-2 rounded-full bg-yellow-400" />
-                  <div className="w-2 h-2 rounded-full bg-green-400" />
-                </div>
-                {/* Simulated Content Area Block */}
-                <div className="flex-1 p-4 bg-slate-50/50 flex flex-col justify-center items-center text-center">
-                  <div className="text-[#10223d] text-[15px] font-black tracking-tight scale-90">
-                    AI-Powered <span className="text-[#00b4af]">Digital Marketing</span> Agency
-                  </div>
-                  <div className="w-20 h-5 bg-[#f2a115] rounded-full mt-3 opacity-80" />
-                  <div className="w-full bg-[#10223d] h-4 mt-6 rounded opacity-90 flex items-center px-4 justify-between">
-                    <span className="text-[7px] text-white font-bold scale-75">We Deliver Results:</span>
-                    <span className="text-[6px] text-white/60 scale-75">Organic growth trends tracking...</span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+            {/* Background Mesh Overlay Pattern for Technical Styling */}
+            <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] bg-[size:20px_20px] opacity-40 pointer-events-none" />
 
-            {/* Mobile Smartphone Overlapping UI Presentation Floating Layer */}
-            <motion.div 
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="absolute bottom-[-30px] right-2 md:right-8 xl:right-[-10px] w-[175px] aspect-[9/18] bg-slate-950 rounded-[32px] p-2 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] border-2 border-slate-800 hidden sm:block"
-            >
-              {/* Internal Smart Screen Layer Canvas */}
-              <div className="w-full h-full bg-white rounded-[26px] overflow-hidden flex flex-col relative border border-slate-200">
-                {/* Camera Speaker Notch Mockup Block */}
-                <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-14 h-3.5 bg-slate-950 rounded-full z-30" />
-                
-                {/* Simulated Content Frame Platform */}
-                <div className="flex-1 pt-8 p-3 flex flex-col justify-start items-center text-center bg-white">
-                  <div className="text-[10px] font-black text-[#10223d] leading-tight scale-95 mt-2">
-                    AI-Powered <br /><span className="text-[#00b4af]">Digital Marketing</span>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeIndex}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.25, ease: "easeInOut" }}
+                className="space-y-8 relative z-10 flex-1 flex flex-col justify-between"
+              >
+                {/* Upper Narrative Workspace */}
+                <div className="space-y-4">
+                  <div className="text-[10px] font-mono font-bold text-[#F59E0B] uppercase tracking-widest">
+                    // Deployment Vector Focus
                   </div>
-                  <div className="w-14 h-4 bg-[#f2a115] rounded-full mt-3 opacity-90" />
-                  <div className="w-full bg-slate-100 h-20 mt-4 rounded-lg p-1 text-[6px] text-left font-bold text-slate-700 leading-normal border border-slate-200/50">
-                    <div>Our Partnerships</div>
-                    <div className="grid grid-cols-2 gap-1 mt-1.5 opacity-60">
-                      <div className="h-3 bg-white border border-slate-200 rounded" />
-                      <div className="h-3 bg-white border border-slate-200 rounded" />
+                  <h4 className="text-2xl font-extrabold tracking-tight text-[#0F172A]">
+                    {highlights[activeIndex].title}
+                  </h4>
+                  <p className="text-[#64748B] text-sm md:text-base leading-relaxed font-normal max-w-xl">
+                    {highlights[activeIndex].desc}
+                  </p>
+                </div>
+
+                {/* Lower Metrics Display Dashboard Array */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-[#E2E8F0] pt-6 mt-auto">
+                  {highlights[activeIndex].details.map((detail, dIdx) => (
+                    <div 
+                      key={dIdx} 
+                      className="bg-white border border-[#E2E8F0] p-4 rounded-xl shadow-xs"
+                    >
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-[#64748B] block">
+                        {detail.label}
+                      </span>
+                      <span className="text-base font-black text-[#0F172A] tracking-tight mt-1 block">
+                        {detail.value}
+                      </span>
                     </div>
-                  </div>
+                  ))}
                 </div>
-              </div>
-            </motion.div>
-
+              </motion.div>
+            </AnimatePresence>
           </div>
 
         </div>

@@ -1,84 +1,174 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const HomeHeroSection = () => {
-  // Ticker items matching the real agency content stream
   const tickerItems = [
-    "Engineered for hyper-business growth.",
-    "👍 1,200+ custom-designed websites, elevating brands with tailored digital experiences.",
-    "Data-driven marketing performance execution.",
-    "Enterprise infrastructure optimized for core web vitals scaling."
+    "Engineered for hyper-growth",
+    "Custom digital platforms",
+    "Data-driven execution",
+    "Enterprise web infrastructure",
+    "Performance marketing",
+    "Conversion optimization",
   ];
 
-  return (
-    <section className="w-full relative min-h-[620px] flex flex-col justify-between bg-white overflow-hidden font-sans antialiased">
-      
-      {/* 1. PIXEL-PERFECT SUBTLE GEOMETRIC BACKGROUND MESH */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.04]" 
-        style={{
-          backgroundImage: `
-            linear-gradient(45deg, #1b2a47 25%, transparent 25%), 
-            linear-gradient(-45deg, #1b2a47 25%, transparent 25%), 
-            linear-gradient(45deg, transparent 75%, #1b2a47 75%), 
-            linear-gradient(-45deg, transparent 75%, #1b2a47 75%)
-          `,
-          backgroundSize: '80px 80px',
-          backgroundPosition: '0 0, 0 40px, 40px -40px, -40px 0px'
-        }}
-      />
+  const doubled = [...tickerItems, ...tickerItems];
 
-      {/* 2. MAIN HERO BRAND COPY HUD */}
-      <div className="w-full max-w-7xl mx-auto px-6 pt-24 pb-16 flex flex-col items-center text-center relative z-10 flex-grow justify-center">
-        
-        {/* Deep Multi-Colored Typography Composition */}
-        <h1 className="text-[54px] lg:text-[64px] font-black text-[#1b2a47] tracking-tight leading-[1.1] max-w-[5xl]">
-          AI-Powered <span className="text-[#00b4af]">Digital Marketing</span>
-          <br />
-          <span className="text-[#00b4af]">Agency</span> for Growth
+  return (
+    <section style={{ fontFamily: "'Inter', sans-serif", background: '#FFFEF9', color: '#1C1F26', display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap');
+
+        .hero-grid-bg {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          overflow: hidden;
+        }
+        .hero-spot {
+          position: absolute;
+          width: 600px;
+          height: 600px;
+          border-radius: 50%;
+          background: rgba(0, 180, 175, 0.07);
+          top: -160px;
+          right: -120px;
+          pointer-events: none;
+        }
+        .hero-spot-sm {
+          position: absolute;
+          width: 300px;
+          height: 300px;
+          border-radius: 50%;
+          background: rgba(0, 180, 175, 0.04);
+          bottom: -60px;
+          left: -60px;
+          pointer-events: none;
+        }
+
+        .hero-btn-primary {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: #1C1F26;
+          color: #F7F5F1;
+          font-family: 'Inter', sans-serif;
+          font-size: 14px;
+          font-weight: 500;
+          padding: 14px 28px;
+          border-radius: 10px;
+          border: none;
+          cursor: pointer;
+          transition: background 0.2s, transform 0.15s;
+          text-decoration: none;
+        }
+        .hero-btn-primary:hover { background: #2D3240; transform: translateY(-1px); }
+        .hero-btn-primary:active { transform: scale(0.98); }
+        .hero-btn-primary:hover .hero-arrow { transform: translateX(3px); }
+
+        .hero-btn-secondary {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          background: transparent;
+          color: #6B7280;
+          font-family: 'Inter', sans-serif;
+          font-size: 14px;
+          font-weight: 500;
+          padding: 14px 4px;
+          border: none;
+          cursor: pointer;
+          transition: color 0.2s;
+          text-decoration: none;
+        }
+        .hero-btn-secondary:hover { color: #1C1F26; }
+        .hero-btn-secondary:hover .hero-arrow { transform: translateX(3px); }
+
+        .hero-arrow {
+          width: 14px;
+          height: 14px;
+          stroke: currentColor;
+          stroke-width: 2;
+          fill: none;
+          transition: transform 0.2s;
+        }
+
+        @keyframes hero-ticker {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+
+        .hero-ticker-track {
+          display: flex;
+          align-items: center;
+          white-space: nowrap;
+          animation: hero-ticker 32s linear infinite;
+        }
+      `}</style>
+
+      {/* Hero */}
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '100px 24px 80px', position: 'relative', overflow: 'hidden', textAlign: 'center' }}>
+        <div className="hero-grid-bg">
+          <div className="hero-spot" />
+          <div className="hero-spot-sm" />
+        </div>
+
+        {/* Badge */}
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'white', border: '1px solid rgba(28,31,38,0.1)', borderRadius: 999, padding: '6px 14px 6px 10px', fontSize: 11, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#6B7280', marginBottom: 36, position: 'relative' }}>
+          <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#00B4AF', flexShrink: 0 }} />
+          Digital Growth Agency
+        </div>
+
+        {/* Headline */}
+        <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontWeight: 400, fontSize: 'clamp(44px, 7vw, 80px)', lineHeight: 1.05, letterSpacing: '-0.02em', color: '#1C1F26', maxWidth: 760, position: 'relative', margin: 0 }}>
+          Marketing that moves<br />
+          at the speed of{' '}
+          <em style={{ fontStyle: 'italic', color: '#00B4AF' }}>your ambition</em>
         </h1>
 
-        {/* Clean Corporate Sub-headline */}
-        <p className="mt-6 text-[21px] lg:text-[23px] font-medium text-slate-700 tracking-wide">
-          From Strategy to Scale — All Sorted
+        {/* Subline */}
+        <p style={{ marginTop: 24, fontSize: 'clamp(16px, 2vw, 18px)', lineHeight: 1.7, color: '#6B7280', maxWidth: 480, position: 'relative' }}>
+          Strategy, technology, and execution — built into one platform that scales with your business.
         </p>
 
-        {/* High-Fidelity Call-To-Action Element */}
-        <button className="mt-8 bg-[#f2a115] hover:bg-[#de910b] text-white font-extrabold text-[14px] tracking-widest px-10 py-4.5 rounded-full shadow-[0_5px_20px_rgba(242,161,21,0.3)] hover:shadow-[0_8px_25px_rgba(242,161,21,0.4)] active:scale-98 transition-all duration-200 uppercase">
-          Let's Talk Growth
-        </button>
+        {/* CTAs */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginTop: 48, position: 'relative', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <a href="#" className="hero-btn-primary">
+            Let's talk growth
+            <svg className="hero-arrow" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+          <a href="#" className="hero-btn-secondary">
+            See our work
+            <svg className="hero-arrow" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
       </div>
 
-      {/* 3. PREMIUM INFINITE CONTENT TICKER FOOTER SHELF */}
-      <div className="w-full bg-[#10223d] h-[64px] relative z-10 flex items-center overflow-hidden border-t border-white/5 select-none">
-        
-        {/* Fixed Title Leading Badge */}
-        <div className="absolute left-0 top-0 bottom-0 bg-[#10223d] z-20 px-12 flex items-center border-r border-white/5 shadow-[10px_0_20px_rgba(16,34,61,0.8)]">
-          <span className="text-[#f2a115] font-black text-[15px] tracking-wide whitespace-nowrap">
-            We Deliver Results:
-          </span>
+      {/* Ticker */}
+      <div style={{ width: '100%', borderTop: '1px solid rgba(28,31,38,0.09)', background: '#FFFEF9', height: 52, display: 'flex', alignItems: 'center', overflow: 'hidden', position: 'relative', flexShrink: 0 }}>
+
+        {/* Label */}
+        <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, background: '#FFFEF9', zIndex: 10, padding: '0 24px 0 20px', display: 'flex', alignItems: 'center', borderRight: '1px solid rgba(28,31,38,0.09)', boxShadow: '8px 0 20px rgba(255,254,249,0.95)', fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#9CA3AF', gap: 8, whiteSpace: 'nowrap' }}>
+          <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#00B4AF', flexShrink: 0 }} />
+          What we do
         </div>
 
-        {/* Infinite CSS/Framer Motion Translation Scroller */}
-        <div className="w-full flex items-center pl-[240px]">
-          <motion.div 
-            className="flex items-center gap-16 whitespace-nowrap"
-            animate={{ x: [0, -1200] }}
-            transition={{
-              repeat: Infinity,
-              ease: "linear",
-              duration: 28,
-            }}
-          >
-            {/* Render loop duplicate sets to prevent white space clipping layout issues */}
-            {[...tickerItems, ...tickerItems, ...tickerItems].map((text, idx) => (
-              <span key={idx} className="text-white/90 text-[14px] font-semibold tracking-wide flex items-center">
+        {/* Scrolling strip */}
+        <div style={{ paddingLeft: 160, overflow: 'hidden', width: '100%' }}>
+          <div className="hero-ticker-track">
+            {doubled.map((text, idx) => (
+              <span key={idx} style={{ display: 'inline-flex', alignItems: 'center', gap: 16, padding: '0 40px', fontSize: 12.5, fontWeight: 500, color: '#6B7280', letterSpacing: '0.02em' }}>
                 {text}
+                <span style={{ width: 3, height: 3, borderRadius: '50%', background: '#D1D5DB', flexShrink: 0 }} />
               </span>
             ))}
-          </motion.div>
+          </div>
         </div>
-        
       </div>
+
     </section>
   );
 };

@@ -1,46 +1,100 @@
 import { motion } from 'framer-motion';
 
 const WhoWeAreSection = () => {
+  // Simple, clean fade-in orchestration
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.12, delayChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.6, ease: [0.215, 0.610, 0.355, 1.000] } 
+    }
+  };
+
+  const stats = [
+    { value: "14+", label: "Years Experience" },
+    { value: "50+", label: "Specialists" },
+    { value: "4+", label: "Global Regions" }
+  ];
+
   return (
-    <section className="w-full bg-white py-24 px-6 md:px-12 lg:px-24 font-sans antialiased overflow-hidden select-none">
-      <div className="max-w-350 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <section className="w-full bg-slate-50/50 py-24 px-6 md:px-12 lg:px-24 font-sans antialiased overflow-hidden select-none">
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start"
+      >
         
-        {/* LEFT COLUMN: HERO TYPOGRAPHY ANCHOR LAYER */}
-        <div className="lg:col-span-5 flex flex-col justify-center relative pl-0 md:pl-8 lg:pl-12">
-          {/* Top Geometric Accent Bar Line */}
-          <div className="w-25 h-1.75 bg-[#f2a115] mb-4 rounded-xs" />
+        {/* LEFT COLUMN: MINIMAL EDITORIAL TYPOGRAPHY */}
+        <div className="lg:col-span-5 flex flex-col justify-center lg:sticky lg:top-24">
+          <motion.div 
+            initial={{ width: 0 }}
+            whileInView={{ width: 48 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="h-[4px] bg-[#f2a115] mb-6 rounded-full" 
+          />
           
-          {/* Scaled Structural Heading */}
-          <h2 className="text-[#10223d] text-[76px] sm:text-[90px] md:text-[105px] font-black tracking-tight leading-[0.88] flex flex-col font-sans uppercase">
-            <span>Who</span>
-            <span className="pl-6 sm:pl-8">We</span>
-            <span className="text-[#10223d]">Are</span>
-          </h2>
-        </div>
-
-        {/* RIGHT COLUMN: BRAND PARAGRAPH DESCRIPTIONS & CTA */}
-        <div className="lg:col-span-7 flex flex-col items-start justify-center">
-          <p className="text-[15.5px] sm:text-[16.5px] text-slate-700/95 font-semibold tracking-wide leading-[1.75] max-w-180">
-            With 14+ years in the industry and a team of 50+ specialists, we know what it takes to grow a 
-            business online. Our people work every day across SEO, paid advertising, social media and web 
-            design for clients running clinics, online stores, law firms, hotels and real estate businesses. We 
-            use AI and live data to build strategies around what your customers are actually searching for, 
-            not just what looks good on paper. Every business we work with gets a plan built around their 
-            specific market and goals. Clients across India, the US, UK and Canada trust us to keep them 
-            ahead of their competition. We'd love to do the same for you.
-          </p>
-
-          {/* Premium Depth Call-To-Action Button with Ambient Drop Shadow Frame */}
-          <motion.button 
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.98 }}
-            className="mt-10 bg-[#f2a115] hover:bg-[#de910b] text-white font-extrabold text-[13.5px] tracking-widest px-9 py-4.5 rounded-full shadow-[0_6px_20px_rgba(242,161,21,0.35)] hover:shadow-[0_8px_25px_rgba(242,161,21,0.45)] transition-all duration-200 uppercase"
+          <motion.h2 
+            variants={itemVariants}
+            className="text-slate-900 text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.05] flex flex-col uppercase"
           >
-            Know More About Us
-          </motion.button>
+            <span>Who</span>
+            <span className="text-[#f2a115] pl-6 sm:pl-8">We</span>
+            <span>Are.</span>
+          </motion.h2>
         </div>
 
-      </div>
+        {/* RIGHT COLUMN: REFINED COPY & CLEAN STATS MESH */}
+        <div className="lg:col-span-7 flex flex-col items-start justify-center space-y-8 lg:mt-2">
+          
+          <motion.div variants={itemVariants} className="space-y-5">
+            <p className="text-lg sm:text-xl text-slate-800 font-semibold tracking-wide leading-relaxed">
+              With 14+ years in the industry and a team of 50+ specialists, we know what it takes to grow a business online. 
+            </p>
+            
+            <p className="text-base text-slate-600 font-normal leading-relaxed">
+              Our people work every day across SEO, paid advertising, social media, and web design for clients running clinics, online stores, law firms, hotels, and real estate businesses. We use AI and live data to build strategies around what your customers are actually searching for, not just what looks good on paper. Every plan is built around specific goals for clients trusting us across India, the US, UK, and Canada.
+            </p>
+          </motion.div>
+
+          {/* Clean Minimal Metrics Grid */}
+          <motion.div 
+            variants={itemVariants} 
+            className="grid grid-cols-3 gap-4 sm:gap-8 w-full border-t border-b border-slate-200 py-6 my-2"
+          >
+            {stats.map((stat, i) => (
+              <div key={i} className="flex flex-col">
+                <span className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">{stat.value}</span>
+                <span className="text-[11px] uppercase tracking-wider text-slate-500 mt-1 font-medium">{stat.label}</span>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Clean Flat-Styled Button */}
+          <motion.div variants={itemVariants}>
+            <motion.button 
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-[#f2a115] hover:bg-[#de910b] text-white font-bold text-xs tracking-widest px-8 py-4 rounded-lg shadow-sm hover:shadow-md uppercase transition-all duration-200"
+            >
+              Know More About Us
+            </motion.button>
+          </motion.div>
+          
+        </div>
+
+      </motion.div>
     </section>
   );
 };

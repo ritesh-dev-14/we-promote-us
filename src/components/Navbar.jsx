@@ -262,7 +262,7 @@ const Navbar = () => {
                     (item) => (
                       <a
                         key={item}
-                        href={`#${item.toLowerCase().replace(" ", "-")}`}
+                        href={`${item.toLowerCase().replace(" ", "-")}`}
                         className="px-5 py-2.5 hover:bg-slate-50 hover:text-[#00b4af] transition-colors border-l-2 border-transparent hover:border-[#00b4af] tracking-wide"
                       >
                         {item}
