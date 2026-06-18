@@ -25,6 +25,26 @@ import HealthcareMarketing from "./pages/services/HealthcareMarketing";
 import RealEstateMarketing from "./pages/services/RealEstateMarketing";
 import RestaurantSeo from "./pages/services/RestaurantSeo";
 import GoogleAds from "./pages/services/GoogleAds";
+import SocialMediaAds from "./pages/services/SocialMediaAds";
+import YoutubeMarketing from "./pages/services/YoutubeMarketing";
+import LinkedinMarketing from "./pages/services/LinkedinMarketing";
+import AmazonMarketing from "./pages/services/AmazonMarketing";
+import AffiliateMarketing from "./pages/services/AffiliateMarketing";
+import ContentMarketing from "./pages/services/ContentMarketing";
+import SocialMedia from "./pages/services/SocialMedia";
+import OnlineReputation from "./pages/services/OnlineReputation";
+import LabelSeo from "./pages/services/LabelSeo";
+import WhiteLabelSeo from "./pages/services/WhiteLabelSeo";
+import EcommerceSeo from "./pages/services/EcommerceSeo";
+import DentalSeo from "./pages/services/DentalSeo";
+import FashionSeo from "./pages/services/FashionSeo";
+import LacksmithSeo from "./pages/services/LacksmithSeo";
+import LawFirmSeo from "./pages/services/LawFirmSeo";
+import RoofingSeo from "./pages/services/RoofingSeo";
+import RealestateSeo from "./pages/services/RealEstateSeo";
+import BlockchainSeo from "./pages/services/BlockchainSeo";
+import ContentSeo from "./pages/services/ContentSeo";
+import AffiliateMarketingSeo from "./pages/services/AffiliateMarketingSeo";
 
 const App = () => {
   return (
@@ -56,6 +76,26 @@ const App = () => {
         <Route path="/real-estate-marketing" element={<RealEstateMarketing />} />
         <Route path="/restaurant-seo" element={<RestaurantSeo />} />
         <Route path="/google-ads" element={<GoogleAds />} />
+        <Route path="/social-media-ads" element={<SocialMediaAds />} />
+        <Route path="/youtube-marketing" element={<YoutubeMarketing />} />
+        <Route path="/linkedin-marketing" element={<LinkedinMarketing />} />
+        <Route path="/amazon-marketing" element={<AmazonMarketing />} />
+        <Route path="/affiliate-marketing" element={<AffiliateMarketing />} />
+        <Route path="/content-marketing" element={<ContentMarketing />} />
+        <Route path="/social-media-marketing" element={<SocialMedia />} />
+        <Route path="/online-reputation-management" element={<OnlineReputation />} />
+        <Route path="/label-seo" element={<LabelSeo />} />
+        <Route path="/white-label-seo" element={<WhiteLabelSeo />} />
+        <Route path="/ecommerce-seo" element={<EcommerceSeo />} />
+        <Route path="/dental-seo" element={<DentalSeo />} />
+        <Route path="/fashion-seo" element={<FashionSeo />} />
+        <Route path="/lacksmith-seo" element={<LacksmithSeo />} />
+        <Route path="/lawfirm-seo" element={<LawFirmSeo />} />
+        <Route path="/roofing-seo" element={<RoofingSeo />} />
+        <Route path="/realestate-seo" element={<RealestateSeo />} />
+        <Route path="/blockchain-seo" element={<BlockchainSeo />} />
+        <Route path="/content-seo" element={<ContentSeo />} />
+        <Route path="/affiliate-seo" element={<AffiliateMarketingSeoSeo />} />
       </Route>
     </Routes>
   );
