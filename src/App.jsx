@@ -17,6 +17,14 @@ import WordpressDesign from "./pages/services/WordpressDesign";
 import WebDesign from "./pages/services/WebDesign";
 import Website from "./pages/services/Website";
 import WordPressMaintainance from "./pages/services/WordPressMaintainance";
+import Dental from "./pages/services/Dental";
+import Skincare from "./pages/services/Skincare";
+import SkinClinicGrowth from "./pages/services/SkinClinicGrowth";
+import HotelMarketing from "./pages/services/HotelMarketing";
+import HealthcareMarketing from "./pages/services/HealthcareMarketing";
+import RealEstateMarketing from "./pages/services/RealEstateMarketing";
+import RestaurantSeo from "./pages/services/RestaurantSeo";
+import GoogleAds from "./pages/services/GoogleAds";
 
 const App = () => {
   return (
@@ -39,8 +47,15 @@ const App = () => {
         <Route path="/web-design" element={<WebDesign />} />
         <Route path="/website-optimisation" element={<Website />} />
         <Route path="/wordpress-maintainance" element={<WordPressMaintainance />} />
-        {/* <Route path="/about" element={<About />} /> */}
-        {/* <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/dental-marketing" element={<Dental />} />
+        <Route path="/skincare-marketing" element={<Skincare />} />
+        <Route path="/dental-marketing" element={<Dental />} />
+        <Route path="/skin-clinic-growth" element={<SkinClinicGrowth />} />
+        <Route path="/hotel-marketing" element={<HotelMarketing />} />
+        <Route path="/healthcare-marketing" element={<HealthcareMarketing />} />
+        <Route path="/real-estate-marketing" element={<RealEstateMarketing />} />
+        <Route path="/restaurant-seo" element={<RestaurantSeo />} />
+        <Route path="/google-ads" element={<GoogleAds />} />
       </Route>
     </Routes>
   );
