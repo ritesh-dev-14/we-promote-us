@@ -1,98 +1,94 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import triveniLogo from "../../assets/partnerships/triveniLogo.png"
+import IDClogo from "../../assets/partnerships/logoIDC.png"
+import theClassicLogo from "../../assets/partnerships/logoTheClassic.png"
+import altezzaLogo from "../../assets/partnerships/altezzalogo.jpg"
+import logoLuxuryKuche from "../../assets/partnerships/logoLuxuryKuche.png"
+import logoAstheticHomes from "../../assets/partnerships/logoAstheticHomes.png"
+import logoDecor from "../../assets/partnerships/logoDecor.png"
+import logoAadique from "../../assets/partnerships/logoAadique.png"
+import logoPunjabModular from "../../assets/partnerships/logoPunjabModular.png"
+import logoBachan from "../../assets/partnerships/logoBachan.png"
+import InneLogo from "../../assets/partnerships/inneLogo.jpg"
+import logoLadazzle from "../../assets/partnerships/logoLa'dazzle.png"
+import logoHanda from "../../assets/partnerships/logoHanda.png"
+import logoHCS from "../../assets/partnerships/logoHCS.png"
+import logoGuptaBrothers from "../../assets/partnerships/logoGuptaBrothers.png"
+import logoMittal from "../../assets/partnerships/logoMittal.png"
+import logoMansarover from "../../assets/partnerships/logoMansarover.png"
+import logoGoyalSweets from "../../assets/partnerships/logoGoyalSweets.png"
+import logoModrika from "../../assets/partnerships/logoModrika.png"
+import logoKamla from "../../assets/partnerships/logoKamla.png"
+
+
+// const placeholderLogo = "https://via.placeholder.com/180x60/ffffff/94a3b8?text=BRAND+LOGO";
 
 const BrandsTrust = () => {
-  const trustedIndustries = [
-    { 
-      label: "Clinics", 
-      volume: "Healthcare Platforms",
-      icon: (
-        <svg className="w-5 h-5 text-[#D97706]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-        </svg>
-      )
-    },
-    { 
-      label: "Online Stores", 
-      volume: "E-Commerce Brands",
-      icon: (
-        <svg className="w-5 h-5 text-[#D97706]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-        </svg>
-      )
-    },
-    { 
-      label: "Law Firms", 
-      volume: "Legal Practices",
-      icon: (
-        <svg className="w-5 h-5 text-[#D97706]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 009 11V7a4 4 0 00-8 0v4c0 2.476.643 4.8 1.77 6.816m16.516.18A13.93 13.93 0 0115 11.543V11.5m0 0a5 5 0 000-10m0 10a5 5 0 010 10M15 1V1m0 18v2" />
-        </svg>
-      )
-    },
-    { 
-      label: "Hotels", 
-      volume: "Hospitality Groups",
-      icon: (
-        <svg className="w-5 h-5 text-[#D97706]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-        </svg>
-      )
-    },
-    { 
-      label: "Real Estate", 
-      volume: "Property Agencies",
-      icon: (
-        <svg className="w-5 h-5 text-[#D97706]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-        </svg>
-      )
-    }
+  // 5 columns over multiple rows based on your asset array length
+  const clientLogos = [
+    { name: "ISKCON Columbus", img: triveniLogo },
+    { name: "C-DAC", img: IDClogo },
+    { name: "Nexgen Agency", img: theClassicLogo },
+    { name: "FS Insight", img: altezzaLogo },
+    { name: "Wheely Wheels", img: logoLuxuryKuche },
+    { name: "Thread & Ink", img: logoAstheticHomes },
+    { name: "Payclix", img: logoDecor },
+    { name: "Lengthis", img: logoAadique },
+    { name: "Hagan", img: logoPunjabModular },
+    { name: "Skin & Cosmetic Surgery", img: logoBachan },
+    { name: "Amrit", img: InneLogo },
+    { name: "Home Center MI", img: logoLadazzle },
+    { name: "Hale Road Medical", img: logoHanda },
+    { name: "Bacteriostatic Water", img: logoHCS },
+    { name: "Heera", img: logoGuptaBrothers },
+    { name: "Gulla CPA", img: logoMittal },
+    { name: "Guide Hustle", img: logoMansarover },
+    { name: "Golden Key Group", img: logoGoyalSweets },
+    { name: "Iidots", img: logoModrika },
+    { name: "Adventure EXP", img: logoKamla },
   ];
 
   return (
-    <section className="w-full bg-[#FAF9F6] py-28 px-6 md:px-12 lg:px-20 font-sans antialiased text-[#0F172A]">
-      <div className="max-w-5xl mx-auto">
+  <section className="w-full bg-[#FFFFFF] py-28 px-6 md:px-12 lg:px-24 font-sans antialiased text-[#0f172a] overflow-hidden relative">
+      {/* Soft Architectural Grid Background Accent */}
+      
+
+      <div className="max-w-[1320px] mx-auto relative z-10">
         
-        {/* REFINED EDITORIAL HEADER */}
-        <div className="max-w-xl mb-16 text-center md:text-left">
-          <h2 className="text-3xl md:text-4xl font-black tracking-tight text-[#0F172A]">
-            Industries we scale.
+        {/* CENTERED EDITORIAL HEADER */}
+        <div className="max-w-2xl mx-auto text-center mb-20">
+          
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#0f172a]">
+            Brands That <span className="text-[#00b4af]">Trust Us</span>
           </h2>
-          <p className="mt-3 text-[#566171] text-sm md:text-base leading-relaxed">
-            Our team optimizes structural organic search, manages targeted acquisition loops, and develops high-velocity platforms across core business sectors.
+          <p className="mt-4 text-slate-500 text-[14px] md:text-[15px] font-medium leading-relaxed max-w-xl mx-auto">
+            We partner with enterprises, healthcare providers, and high-growth startups globally to construct elite organic digital visibility.
           </p>
         </div>
 
-        {/* HIGH-CONTRAST BALANCED GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
-          {trustedIndustries.map((item, index) => (
+        {/* PIXEL-PERFECT BORDERED LOGO MATRIX */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-[0_4px_30px_rgba(15,23,42,0.02)]">
+          {clientLogos.map((logo, index) => (
             <motion.div
               key={index}
-              whileHover={{ 
-                y: -5, 
-                borderColor: "#F59E0B",
-                boxShadow: "0 20px 40px -15px rgba(15, 23, 42, 0.06)"
-              }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-white border border-[#E2E8F0] rounded-2xl p-6 flex flex-col justify-between h-44 shadow-xs group transition-colors duration-200 cursor-default"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.02 }}
+              className=" flex items-center justify-center p-6 bg-white border border-slate-100 relative group transition-colors duration-300 hover:bg-[#fafcfe] cursor-default"
             >
-              {/* Premium Vector Badge Container */}
-              <div className="w-10 h-10 rounded-xl bg-[#F59E0B]/5 border border-[#F59E0B]/10 flex items-center justify-center transition-all duration-300 group-hover:bg-[#F59E0B] group-hover:border-[#F59E0B]">
-                <span className="group-hover:text-white transition-colors duration-300">
-                  {item.icon}
-                </span>
-              </div>
+              {/* Subtle inner card border interaction matching your theme */}
+              <div className="absolute inset-0 border border-transparent group-hover:border-[#00b4af]/30 transition-all duration-300 pointer-events-none z-20" />
               
-              {/* Core Text Elements Block */}
-              <div className="space-y-1">
-                <span className="text-[10px] font-mono font-bold tracking-wider text-[#94A3B8] uppercase block">
-                  {item.volume}
-                </span>
-                <h3 className="text-[#0F172A] font-black text-lg md:text-xl tracking-tight leading-none group-hover:text-[#D97706] transition-colors duration-200">
-                  {item.label}
-                </h3>
-              </div>
+              {/* Logo Presentation Frame */}
+              <motion.img
+                whileHover={{ scale: 1.04 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                src={logo.img}
+                alt={`${logo.name} logo`}
+                className="max-w-full max-h-[55px] object-contain filter  opacity-75 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 relative z-10"
+              />
             </motion.div>
           ))}
         </div>

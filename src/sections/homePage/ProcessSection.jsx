@@ -1,8 +1,29 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const ProcessSection = () => {
   const [activeStep, setActiveStep] = useState(0);
+    const navigate = useNavigate();
+
+  const handleConnectClick = () => {
+  // Check if the window is currently pointing directly to the root homepage path
+  if (window.location.pathname === "/") {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  } else {
+    // Navigate home first, then safely schedule a smooth execution interval
+    navigate("/");
+    setTimeout(() => {
+      const contactSection = document.getElementById("contact");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
+  }
+};
 
   const steps = [
     {
@@ -41,9 +62,9 @@ const ProcessSection = () => {
         
         {/* REFINED HEADER LAYER - OPTIMIZED VERTICAL SPACING */}
         <div className="space-y-2 mb-14 text-center md:text-left">
-          <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#F59E0B]/10 border border-[#F59E0B]/20 rounded-md">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B]" />
-            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#D97706]">Deployment Workflow</span>
+          <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#00B4AF]/10 border border-[#00B4AF]/20 rounded-md">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00B4AF]" />
+            <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#00B4AF]">Deployment Workflow</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-black tracking-tight text-[#0F172A]">
             How we scale your digital presence.
@@ -63,7 +84,7 @@ const ProcessSection = () => {
                 {/* Visual Upper Bar Meter - Using Single Amber Accent */}
                 <div className="w-full h-[3px] bg-[#E2E8F0] rounded-full relative overflow-hidden mb-3">
                   <motion.div 
-                    className="absolute inset-0 bg-[#F59E0B]"
+                    className="absolute inset-0 bg-[#00B4AF]"
                     initial={false}
                     animate={{ x: isActive ? "0%" : "-100%" }}
                     transition={{ duration: 0.25, ease: "easeInOut" }}
@@ -71,7 +92,7 @@ const ProcessSection = () => {
                 </div>
 
                 <div className="space-y-0.5 pl-0.5">
-                  <span className={`block font-mono text-[10px] font-bold tracking-wider transition-colors ${isActive ? 'text-[#F59E0B]' : 'text-[#94A3B8]'}`}>
+                  <span className={`block font-mono text-[10px] font-bold tracking-wider transition-colors ${isActive ? 'text-[#00B4AF]' : 'text-[#94A3B8]'}`}>
                     PHASE {step.id}
                   </span>
                   <span className={`block text-sm font-bold tracking-tight transition-colors ${isActive ? 'text-[#0F172A]' : 'text-[#64748B] group-hover:text-[#334155]'}`}>
@@ -120,7 +141,7 @@ const ProcessSection = () => {
                 </div>
 
                 <div className="md:pt-6">
-                  <button className="w-full md:w-auto bg-[#F59E0B] hover:bg-[#D97706] active:scale-[0.99] text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-lg transition-all duration-150 shadow-xs">
+                  <button onClick={handleConnectClick} className="w-full md:w-auto bg-[#00B4AF] hover:bg-[#037571] active:scale-[0.99] text-white text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-lg transition-all duration-150 shadow-xs">
                     Initiate Framework
                   </button>
                 </div>

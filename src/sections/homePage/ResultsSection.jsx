@@ -45,7 +45,7 @@ const ResultsSection = () => {
         
         {/* HEADER LABEL AND SUBTEXT */}
         <div className="text-center mb-16 max-w-2xl">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#f2a115] block mb-3">Performance Metrics</span>
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#00B4AF] block mb-3">Performance Metrics</span>
           <h2 className="text-slate-900 text-3xl md:text-4xl font-black tracking-tight leading-none uppercase">
             Results-Driven Agency
           </h2>
@@ -76,7 +76,7 @@ const ResultsSection = () => {
               </div>
 
               {/* Stat Highlight Metric */}
-              <span className="text-[#f2a115] text-4xl md:text-5xl font-black tracking-tight leading-none relative z-10 font-mono">
+              <span className="text-[#00B4AF] text-4xl md:text-5xl font-black tracking-tight leading-none relative z-10 font-mono">
                 {item.value}
               </span>
               

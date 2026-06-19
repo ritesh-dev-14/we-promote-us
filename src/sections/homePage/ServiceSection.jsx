@@ -1,7 +1,29 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const ServiceSection = () => {
+
+    const navigate = useNavigate();
+
+  const handleConnectClick = () => {
+    // Check if the window is currently pointing directly to the root homepage path
+    if (window.location.pathname === "/") {
+      const contactSection = document.getElementById("contact");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // Navigate home first, then safely schedule a smooth execution interval
+      navigate("/");
+      setTimeout(() => {
+        const contactSection = document.getElementById("contact");
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
+  };
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const servicesData = [
@@ -46,9 +68,9 @@ const ServiceSection = () => {
         {/* STRUCTURAL HEADER ROW */}
         <div className="w-full bg-white border border-[#E2E8F0] rounded-xl p-8 md:p-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-center shadow-[0_2px_8px_rgba(15,23,42,0.01)]">
           <div className="md:col-span-5 space-y-2">
-            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#FBBF24]/10 border border-[#FBBF24]/30 rounded-md">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B]" />
-              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#B45309]">Capabilities Matrix</span>
+            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#00B4AF]/10 border border-[#00B4AF]/30 rounded-md">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#00B4AF]" />
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#00B4AF]">Capabilities Matrix</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#0F172A]">
               Our Core Services.
@@ -76,7 +98,7 @@ const ServiceSection = () => {
                 className="w-full bg-white border border-[#E2E8F0] rounded-xl p-6 md:p-8 flex flex-col lg:flex-row items-stretch justify-between gap-6 md:gap-8 relative transition-all duration-200 shadow-[0_2px_6px_rgba(15,23,42,0.01)] hover:shadow-md cursor-pointer overflow-hidden"
               >
                 {/* Yellow Hover Top Border Indicator */}
-                <div className={`absolute top-0 left-0 right-0 h-[3px] bg-[#F59E0B] transition-transform duration-300 origin-left ${isHovered ? 'scale-x-100' : 'scale-x-0'}`} />
+                <div className={`absolute top-0 left-0 right-0 h-[3px] bg-[#00B4AF] transition-transform duration-300 origin-left ${isHovered ? 'scale-x-100' : 'scale-x-0'}`} />
 
                 {/* Left: Core Structural Text Column */}
                 <div className="lg:w-[45%] flex flex-col justify-between space-y-4">
@@ -85,11 +107,11 @@ const ServiceSection = () => {
                       <span className="text-xs font-mono font-bold text-[#64748B] bg-[#F8FAFC] border border-[#E2E8F0] w-6 h-6 rounded flex items-center justify-center">
                         0{index + 1}
                       </span>
-                      <h3 className="text-xl font-bold tracking-tight text-[#0F172A] transition-colors duration-200 group-hover:text-[#F59E0B]">
+                      <h3 className="text-xl font-bold tracking-tight text-[#0F172A] transition-colors duration-200 group-hover:text-[#00B4AF]">
                         {service.title}
                       </h3>
                     </div>
-                    <p className="text-xs font-bold text-[#F59E0B] tracking-wide uppercase">
+                    <p className="text-xs font-bold text-[#00B4AF] tracking-wide uppercase">
                       {service.tagline}
                     </p>
                   </div>
@@ -106,7 +128,7 @@ const ServiceSection = () => {
                   <div className="space-y-2">
                     {service.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-2.5 text-xs font-semibold text-[#64748B]">
-                        <svg className="w-3.5 h-3.5 text-[#F59E0B] shrink-0" fill="none" stroke="currentColor" strokeWidth="3.5" viewBox="0 0 24 24">
+                        <svg className="w-3.5 h-3.5 text-[#00B4AF] shrink-0" fill="none" stroke="currentColor" strokeWidth="3.5" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                         </svg>
                         <span className="text-[#0F172A] text-[13px]">{feature}</span>
@@ -116,7 +138,7 @@ const ServiceSection = () => {
                 </div>
 
                 {/* Right: Technical Yield Performance Metric Panel */}
-                <div className="lg:w-[18%] border border-[#E2E8F0] lg:border-l-2 lg:border-l-[#F59E0B] rounded-lg lg:rounded-r-lg lg:rounded-l-none p-5 flex flex-col justify-center items-center lg:items-end text-center lg:text-right bg-gradient-to-br from-white to-[#F8FAFC]">
+                <div className="lg:w-[18%] border border-[#E2E8F0] lg:border-l-2 lg:border-l-[#00B4AF] rounded-lg lg:rounded-r-lg lg:rounded-l-none p-5 flex flex-col justify-center items-center lg:items-end text-center lg:text-right bg-gradient-to-br from-white to-[#F8FAFC]">
                   <span className="text-3xl md:text-4xl font-black tracking-tight text-[#0F172A] leading-none">
                     {service.metric}
                   </span>
@@ -140,7 +162,7 @@ const ServiceSection = () => {
               Partner with us to optimize your platform architecture, run exact tracking pipelines, and scale organic search metrics.
             </p>
           </div>
-          <button className="bg-[#0F172A] hover:bg-[#1E293B] text-white font-bold text-xs tracking-wider px-6 py-3.5 rounded-lg uppercase shadow-sm transition-all duration-150 shrink-0 w-full md:w-auto active:scale-[0.98] border border-transparent">
+          <button onClick={handleConnectClick} className="bg-[#0F172A] hover:bg-[#1E293B] text-white font-bold text-xs tracking-wider px-6 py-3.5 rounded-lg uppercase shadow-sm transition-all duration-150 shrink-0 w-full md:w-auto active:scale-[0.98] border border-transparent">
             Schedule Architecture Session
           </button>
         </div>

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const FAQsection = () => {
   // Track open state per accordion item index (null means all closed)
@@ -8,21 +8,46 @@ const FAQsection = () => {
   // Exact FAQ content mapped out to match your agency niche structural data
   const faqData = [
     {
-      question: "What digital marketing services do you offer?",
-      answer: "We offer a comprehensive, data-driven suite of growth services including Search Engine Optimization (SEO), ROI-focused Pay-Per-Click (PPC) advertising campaigns, high-performance Full Stack Web Development, and omnichannel Social Media Marketing frameworks designed to scale conversions."
+      question: "What services does We Promote provide?",
+      answer:
+        "We help businesses grow through website design and development, SEO, Google Ads, digital marketing, branding, UI/UX design, and conversion-focused optimization. Whether you're launching a new business or scaling an existing one, we build solutions tailored to your goals.",
     },
     {
-      question: "How long does it take to see tangible results from SEO?",
-      answer: "While structural optimizations and technical SEO cleanups provide quick index efficiency benefits, meaningful organic rank authority and compounding growth metrics typically take 3 to 6 months to mature depending on industry competition density."
+      question:
+        "Do you work with local businesses and service-based companies?",
+      answer:
+        "Yes. We've worked with businesses across industries including hotels, modular kitchen brands, granite and stone suppliers, healthcare providers, professional services, and other local businesses. Every strategy is customized based on your market, audience, and objectives.",
     },
     {
-      question: "Do you build custom web applications or just use templates?",
-      answer: "We focus heavily on high-performance, pixel-perfect custom development. By writing clean code configurations using modern tech stacks like the MERN architecture, Tailwind CSS, and optimized motion rendering, we ensure ultra-fast page speeds and custom tailor design flows to mirror your absolute vision."
+      question: "How long does it take to complete a website project?",
+      answer:
+        "Project timelines depend on scope and complexity. Most business websites are completed within 2–6 weeks, while larger custom platforms may require additional time for planning, development, integrations, and testing.",
     },
     {
-      question: "How do you track and report campaign data metrics?",
-      answer: "We enforce complete clarity and accountability. You receive structured milestone dashboards alongside direct performance reporting logs that track your live conversion rates, exact cost-per-lead (CPL), search positioning shifts, and precise multi-channel return on ad spend (ROAS)."
-    }
+      question: "Can you improve my Google rankings?",
+      answer:
+        "Yes. Our SEO process focuses on technical optimization, content strategy, local search visibility, and long-term authority building. SEO is a long-term investment, but it remains one of the most effective ways to generate qualified organic traffic.",
+    },
+    {
+      question: "Do you manage Google Ads and paid marketing campaigns?",
+      answer:
+        "Absolutely. We create, manage, and optimize Google Ads campaigns designed to increase visibility, generate qualified leads, and maximize return on ad spend through continuous testing and performance analysis.",
+    },
+    {
+      question: "Will my website be mobile-friendly and fast?",
+      answer:
+        "Every website we build is fully responsive, optimized for speed, and designed to deliver a seamless experience across desktop, tablet, and mobile devices.",
+    },
+    {
+      question: "Do you offer ongoing support after launch?",
+      answer:
+        "Yes. We provide ongoing maintenance, updates, SEO support, performance monitoring, content updates, and digital marketing assistance to ensure your online presence continues to grow.",
+    },
+    {
+      question: "How do I get started?",
+      answer:
+        "Simply reach out through our contact form, email, or phone. We'll schedule a consultation, understand your business goals, and recommend the most effective strategy for your growth.",
+    },
   ];
 
   const toggleFAQ = (index) => {
@@ -31,16 +56,20 @@ const FAQsection = () => {
 
   return (
     <section className="w-full bg-[#f8fafc]/40 py-24 px-6 md:px-12 lg:px-24 font-sans antialiased select-none overflow-hidden">
-      <div className="max-w-[960px] mx-auto flex flex-col items-center">
-        
+      <div className="max-w-[1100px] mx-auto flex flex-col items-center">
         {/* HEADING INFRASTRUCTURE PLATFORM */}
-        <div className="text-center mb-16 max-w-2xl">
-          <h2 className="text-[#10223d] text-[38px] md:text-[44px] font-black tracking-tight leading-none">
+        <div className="text-center mb-20 max-w-3xl mx-auto">
+          <span className="inline-flex items-center rounded-full border border-[#00B4AF]/20 bg-[#00B4AF]/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#00B4AF]">
             Frequently Asked Questions
+          </span>
+
+          <h2 className="mt-6 text-4xl md:text-5xl font-black tracking-tight text-[#10223d]">
+            Answers to common questions.
           </h2>
-          <p className="mt-4 text-slate-600 font-semibold text-[15.5px] md:text-[16.5px] tracking-wide leading-relaxed">
-            Got questions? We've got answers. Explore our detailed breakdowns on how we drive 
-            digital execution and scale performance metrics worldwide.
+
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            Everything you need to know about our services, process, timelines,
+            and how we help businesses grow online.
           </p>
         </div>
 
@@ -51,27 +80,44 @@ const FAQsection = () => {
             return (
               <div
                 key={index}
-                className="w-full bg-white border border-slate-200/80 rounded-2xl overflow-hidden transition-all duration-200 hover:border-slate-300 hover:shadow-sm"
+                className={`w-full rounded-3xl overflow-hidden transition-all duration-300
+${
+  isOpen
+    ? "bg-white border border-[#00B4AF]/20 shadow-[0_15px_40px_rgba(0,180,175,0.08)]"
+    : "bg-white border border-slate-200 hover:border-slate-300 hover:shadow-md"
+}`}
               >
                 {/* Trigger Button Row Header */}
                 <button
                   onClick={() => toggleFAQ(index)}
                   className="w-full p-6 sm:p-7 flex items-center justify-between text-left gap-6 focus:outline-none"
                 >
-                  <span className="text-[#10223d] font-black text-[17px] md:text-[18.5px] tracking-tight leading-snug">
-                    {faq.question}
-                  </span>
-                  
+                  <span className="text-[#10223d] font-bold text-lg md:text-xl leading-snug pr-4">
+  {faq.question}
+</span>
+
                   {/* High-Fidelity Custom Indicator Chevron Cross Frame */}
                   <motion.div
-                    animate={{ rotate: isOpen ? 180 : 0 }}
-                    transition={{ duration: 0.25, ease: "easeInOut" }}
-                    className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 border border-slate-100 transition-colors ${
-                      isOpen ? 'bg-[#10223d] text-white' : 'bg-slate-50 text-slate-500'
-                    }`}
-                  >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+  animate={{ rotate: isOpen ? 180 : 0 }}
+  className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all
+  ${
+    isOpen
+      ? "bg-[#00B4AF] text-white"
+      : "bg-slate-100 text-slate-500"
+  }`}
+>
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19 9l-7 7-7-7"
+                      />
                     </svg>
                   </motion.div>
                 </button>
@@ -93,12 +139,10 @@ const FAQsection = () => {
                     </motion.div>
                   )}
                 </AnimatePresence>
-
               </div>
             );
           })}
         </div>
-
       </div>
     </section>
   );

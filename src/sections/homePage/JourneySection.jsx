@@ -58,9 +58,9 @@ const Journey = () => {
         {/* REFINED ARCHITECTURAL HEADER BLOCK */}
         <div className="w-full border-b border-[#E2E8F0] pb-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
           <div className="lg:col-span-7 space-y-4">
-            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#FBBF24]/10 border border-[#FDE68A] rounded-md">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#F59E0B]" />
-              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#B45309]">Operational Execution</span>
+            <div className="inline-flex items-center gap-2 px-2.5 py-0.5 bg-[#00B4AF]/10 border border-[#00B4AF] rounded-md">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#00B4AF]" />
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#00B4AF]">Operational Execution</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#0F172A] leading-[1.1]">
               The Lifecycle of Scale.
@@ -86,16 +86,16 @@ const Journey = () => {
                   onClick={() => setActiveIndex(idx)}
                   className={`w-full text-left p-6 rounded-xl border transition-all duration-300 relative overflow-hidden flex items-start gap-4 focus:outline-none ${
                     isActive 
-                      ? 'bg-[#F8FAFC] border-[#F59E0B] shadow-[0_4px_20px_rgba(245,158,11,0.04)]' 
+                      ? 'bg-[#F8FAFC] border-[#00B4AF] shadow-[0_4px_20px_rgba(245,158,11,0.04)]' 
                       : 'bg-white border-[#E2E8F0] hover:border-[#CBD5E1]'
                   }`}
                 >
                   {/* Left-Side Colored Accent Stripe for Active State */}
-                  <div className={`absolute left-0 top-0 bottom-0 w-[3px] bg-[#F59E0B] transition-transform duration-300 origin-top ${isActive ? 'scale-y-100' : 'scale-y-0'}`} />
+                  <div className={`absolute left-0 top-0 bottom-0 w-[3px] bg-[#00B4AF] transition-transform duration-300 origin-top ${isActive ? 'scale-y-100' : 'scale-y-0'}`} />
 
                   <span className={`text-xs font-mono font-bold px-2 py-0.5 rounded border transition-colors duration-200 ${
                     isActive 
-                      ? 'bg-[#FFFBEB] text-[#F59E0B] border-[#FEF3C7]' 
+                      ? 'bg-[#00B4AF]/10 text-[#00B4AF]/70 border-[#00B4AF]' 
                       : 'bg-[#F8FAFC] text-[#64748B] border-[#E2E8F0]'
                   }`}>
                     {item.num}
@@ -131,7 +131,7 @@ const Journey = () => {
               >
                 {/* Upper Narrative Workspace */}
                 <div className="space-y-4">
-                  <div className="text-[10px] font-mono font-bold text-[#F59E0B] uppercase tracking-widest">
+                  <div className="text-[10px] font-mono font-bold text-[#00B4AF] uppercase tracking-widest">
                     // Deployment Vector Focus
                   </div>
                   <h4 className="text-2xl font-extrabold tracking-tight text-[#0F172A]">
