@@ -62,7 +62,7 @@ const StoriesSection = () => {
 ];
 
   return (
-    <section className="w-full bg-[#FFFFFF] py-24 px-6 md:px-12 lg:px-20 font-sans antialiased text-[#0F172A]">
+    <section id="case-study" className="w-full bg-[#FFFFFF] py-24 px-6 md:px-12 lg:px-20 font-sans antialiased text-[#0F172A]">
       <div className="max-w-4xl mx-auto">
         
         {/* STRUCTURAL HEADER BLOCK */}

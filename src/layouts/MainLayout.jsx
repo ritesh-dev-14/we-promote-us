@@ -1,13 +1,16 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ScrollToTop from "../components/ScrollToTop";
 
 const MainLayout = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <ScrollToTop />
+
       <Navbar />
 
-      <main className="flex-1">
+      <main className="flex-1 pt-[132px]">
         <Outlet />
       </main>
 
@@ -16,4 +19,4 @@ const MainLayout = () => {
   );
 };
 
-export default MainLayout;
+export default MainLayout

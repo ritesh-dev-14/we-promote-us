@@ -8,7 +8,7 @@ const BENEFITS_DATA = [
     title: "Elite Work Culture",
     desc: "Work alongside world-class engineers, creators, and marketers in an environment built on absolute transparency and raw engineering craftsmanship.",
     icon: (
-      <svg className="w-6 h-6 text-[#74358C]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+      <svg className="w-6 h-6 text-[#4cb1a1]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
       </svg>
     )
@@ -18,7 +18,7 @@ const BENEFITS_DATA = [
     title: "Competitive Compensation",
     desc: "Industry-leading base salaries, high-velocity performance bonuses, comprehensive health insurance packages, and performance equity grants.",
     icon: (
-      <svg className="w-6 h-6 text-[#74358C]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+      <svg className="w-6 h-6 text-[#4cb1a1]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     )
@@ -28,7 +28,7 @@ const BENEFITS_DATA = [
     title: "Uncapped Progression",
     desc: "Clear individual contributor & leadership tracking. We supply high-end educational stipends, courses, and custom architectural mentorship frameworks.",
     icon: (
-      <svg className="w-6 h-6 text-[#74358C]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+      <svg className="w-6 h-6 text-[#4cb1a1]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
       </svg>
     )
@@ -76,19 +76,19 @@ export default function PremiumCareersPage() {
   };
 
   return (
-    <div className="w-full bg-[#FFFFFF] font-sans antialiased text-[#333333] selection:bg-[#74358C]/20 overflow-x-hidden">
+    <div className="w-full bg-[#FFFFFF] font-sans antialiased text-[#334155] selection:bg-[#4cb1a1]/20 overflow-x-hidden">
       
       {/* SECTION 1: KINETIC ENTERPRISE HERO IMAGE BLOCK */}
-      <div className="w-full relative min-h-[85vh] flex items-center bg-[#1F2B48] text-white overflow-hidden">
-        {/* Cinematic parallax background element */}
+      <div className="w-full relative min-h-[85vh] flex items-center bg-[#182f59] text-white overflow-hidden">
+        {/* Parallax background element */}
         <div className="absolute inset-0 w-full h-full opacity-40">
           <img 
             src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=2000" 
             alt="Dynamic Workspace Cohesion" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1F2B48] via-[#1F2B48]/80 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1F2B48] via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#182f59] via-[#182f59]/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#182f59] via-transparent to-transparent" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-24">
@@ -97,9 +97,9 @@ export default function PremiumCareersPage() {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#74358C]/20 border border-[#74358C]/30 text-purple-300 text-xs font-semibold uppercase tracking-widest"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#4cb1a1]/20 border border-[#4cb1a1]/30 text-[#4cb1a1] text-xs font-semibold uppercase tracking-widest"
             >
-              <span className="w-2 h-2 rounded-full bg-[#74358C] animate-ping" />
+              <span className="w-2 h-2 rounded-full bg-[#4cb1a1] animate-ping" />
               We Are Actively Hiring
             </motion.div>
             
@@ -110,7 +110,7 @@ export default function PremiumCareersPage() {
               className="text-4xl sm:text-6xl font-black tracking-tight leading-[1.1]"
             >
               Build the Future of <br />
-              <span className="text-[#74358C] bg-gradient-to-r from-purple-400 to-[#74358C] bg-clip-text text-transparent italic font-serif font-normal">Digital Dominance</span>
+              <span className="text-[#4cb1a1] bg-gradient-to-r from-[#4cb1a1] to-[#3ca090] bg-clip-text text-transparent italic font-serif font-normal">Digital Dominance</span>
             </motion.h1>
 
             <motion.p 
@@ -130,7 +130,7 @@ export default function PremiumCareersPage() {
             >
               <a 
                 href="#openings" 
-                className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-[#74358C] hover:bg-[#5c2870] text-white text-sm font-bold tracking-wide shadow-lg transition-all duration-300 transform hover:translate-y-[-2px]"
+                className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-[#4cb1a1] hover:bg-[#3ca090] text-white text-sm font-bold tracking-wide shadow-lg transition-all duration-300 transform hover:translate-y-[-2px]"
               >
                 Explore Open Positions
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
@@ -159,7 +159,7 @@ export default function PremiumCareersPage() {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="space-y-1"
             >
-              <h3 className="text-3xl sm:text-4xl font-black text-[#231F54]">{stat.metric}</h3>
+              <h3 className="text-3xl sm:text-4xl font-black text-[#182f59]">{stat.metric}</h3>
               <p className="text-xs font-semibold tracking-wider uppercase text-gray-400">{stat.label}</p>
             </motion.div>
           ))}
@@ -171,10 +171,10 @@ export default function PremiumCareersPage() {
         <div className="max-w-7xl mx-auto">
           
           <div className="text-center max-w-2xl mx-auto mb-20">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#231F54] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#182f59] tracking-tight">
               Why Engineers & Creators Stay
             </h2>
-            <div className="w-12 h-[3px] bg-[#74358C] mx-auto mt-4 rounded-full" />
+            <div className="w-12 h-[3px] bg-[#4cb1a1] mx-auto mt-4 rounded-full" />
             <p className="text-sm text-gray-400 font-light mt-4">
               We engineer our internal workplace culture just as intensely as we optimize our deployment systems.
             </p>
@@ -189,12 +189,12 @@ export default function PremiumCareersPage() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
                 whileHover={{ y: -8 }}
-                className="bg-white p-8 rounded-2xl border border-gray-100 shadow-[0_15px_40px_rgba(35,31,84,0.02)] transition-all duration-300 hover:shadow-[0_30px_60px_rgba(116,53,140,0.06)]"
+                className="bg-white p-8 rounded-2xl border border-gray-100 shadow-[0_15px_40px_rgba(24,47,89,0.02)] transition-all duration-300 hover:shadow-[0_30px_60px_rgba(76,177,161,0.06)]"
               >
-                <div className="w-12 h-12 bg-[#74358C]/5 border border-[#74358C]/10 rounded-xl flex items-center justify-center mb-6">
+                <div className="w-12 h-12 bg-[#4cb1a1]/5 border border-[#4cb1a1]/10 rounded-xl flex items-center justify-center mb-6">
                   {benefit.icon}
                 </div>
-                <h3 className="text-lg font-bold text-[#231F54] mb-3">{benefit.title}</h3>
+                <h3 className="text-lg font-bold text-[#182f59] mb-3">{benefit.title}</h3>
                 <p className="text-xs sm:text-sm text-gray-500 font-light leading-relaxed">{benefit.desc}</p>
               </motion.div>
             ))}
@@ -203,17 +203,17 @@ export default function PremiumCareersPage() {
         </div>
       </div>
 
-      {/* SECTION 4: HIGH-FIDELITY ACTIVE ACCORDION POSITIONS CHASSIS */}
-      <div id="openings" className="w-full bg-[#1F2B48] py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative">
+      {/* SECTION 4: ACTIVE ACCORDION POSITIONS CHASSIS */}
+      <div id="openings" className="w-full bg-[#182f59] py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-5xl mx-auto relative z-10">
           
           <div className="text-center mb-20 text-white">
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
               Current Architecture Openings
             </h2>
-            <div className="w-12 h-[2px] bg-[#74358C]/60 mx-auto mt-4" />
+            <div className="w-12 h-[2px] bg-[#4cb1a1]/60 mx-auto mt-4" />
             <p className="text-sm text-gray-400 font-light mt-4">
-              Can't find an exact position match? Drop your CV directly at <span className="text-[#74358C] font-semibold underline">hr@leadingedge.com</span>
+              Can't find an exact position match? Drop your CV directly at <span className="text-[#4cb1a1] font-semibold underline">hr@leadingedge.com</span>
             </p>
           </div>
 
@@ -229,7 +229,7 @@ export default function PremiumCareersPage() {
                   transition={{ duration: 0.5 }}
                   className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${
                     isExpanded 
-                      ? "border-[#74358C] shadow-2xl shadow-black/20" 
+                      ? "border-[#4cb1a1] shadow-2xl shadow-black/20" 
                       : "border-gray-200/10 hover:border-white/20 shadow-sm"
                   }`}
                 >
@@ -240,14 +240,14 @@ export default function PremiumCareersPage() {
                   >
                     <div className="space-y-1">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-[10px] uppercase tracking-wider font-extrabold bg-[#74358C]/10 text-[#74358C] px-2.5 py-0.5 rounded">
+                        <span className="text-[10px] uppercase tracking-wider font-extrabold bg-[#4cb1a1]/10 text-[#4cb1a1] px-2.5 py-0.5 rounded">
                           {opening.department}
                         </span>
                         <span className="text-[10px] uppercase tracking-wider font-bold bg-gray-100 text-gray-500 px-2.5 py-0.5 rounded">
                           {opening.type}
                         </span>
                       </div>
-                      <h3 className="text-lg sm:text-xl font-bold text-[#231F54] pt-1">
+                      <h3 className="text-lg sm:text-xl font-bold text-[#182f59] pt-1">
                         {opening.title}
                       </h3>
                       <div className="flex items-center gap-4 text-xs text-gray-400 pt-1">
@@ -262,7 +262,7 @@ export default function PremiumCareersPage() {
                       </div>
                     </div>
 
-                    <div className={`p-2 rounded-full border bg-gray-50 text-[#231F54] transform transition-transform duration-300 flex-shrink-0 ${isExpanded ? "rotate-180 border-[#74358C]/30 bg-[#74358C]/5 text-[#74358C]" : "border-gray-200"}`}>
+                    <div className={`p-2 rounded-full border bg-gray-50 text-[#182f59] transform transition-transform duration-300 flex-shrink-0 ${isExpanded ? "rotate-180 border-[#4cb1a1]/30 bg-[#4cb1a1]/5 text-[#4cb1a1]" : "border-gray-200"}`}>
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                       </svg>
@@ -281,16 +281,16 @@ export default function PremiumCareersPage() {
                       >
                         <div className="p-6 sm:p-8 space-y-6 text-sm">
                           <div className="space-y-2">
-                            <h4 className="font-bold text-[#231F54] uppercase tracking-wide text-xs">Role Blueprint</h4>
+                            <h4 className="font-bold text-[#182f59] uppercase tracking-wide text-xs">Role Blueprint</h4>
                             <p className="text-gray-600 font-light leading-relaxed">{opening.summary}</p>
                           </div>
 
                           <div className="space-y-2.5">
-                            <h4 className="font-bold text-[#231F54] uppercase tracking-wide text-xs">Core Skill Criteria</h4>
+                            <h4 className="font-bold text-[#182f59] uppercase tracking-wide text-xs">Core Skill Criteria</h4>
                             <ul className="space-y-1.5 list-inside text-gray-600 font-light">
                               {opening.requirements.map((req, index) => (
                                 <li key={index} className="flex items-start gap-2">
-                                  <span className="text-[#74358C] font-bold mt-0.5">✓</span>
+                                  <span className="text-[#4cb1a1] font-bold mt-0.5">✓</span>
                                   {req}
                                 </li>
                               ))}
@@ -298,7 +298,7 @@ export default function PremiumCareersPage() {
                           </div>
 
                           <div className="pt-4 flex justify-end">
-                            <button className="px-6 py-2.5 rounded-xl bg-[#231F54] hover:bg-[#74358C] text-white font-bold text-xs tracking-wider uppercase transition-all duration-200 shadow-md">
+                            <button className="px-6 py-2.5 rounded-xl bg-[#182f59] hover:bg-[#4cb1a1] text-white font-bold text-xs tracking-wider uppercase transition-all duration-200 shadow-md">
                               Apply Securely
                             </button>
                           </div>

@@ -47,7 +47,7 @@ const WhoWeAreSection = () => {
   ];
 
   return (
-    <section className="w-full bg-slate-50/50 py-24 px-6 md:px-12 lg:px-24 font-sans antialiased overflow-hidden select-none">
+    <section id="about" className="w-full bg-slate-50/50 py-24 px-6 md:px-12 lg:px-24 font-sans antialiased overflow-hidden select-none">
       <motion.div
         variants={containerVariants}
         initial="hidden"

@@ -45,59 +45,86 @@ import RealestateSeo from "./pages/services/RealEstateSeo";
 import BlockchainSeo from "./pages/services/BlockchainSeo";
 import ContentSeo from "./pages/services/ContentSeo";
 import AffiliateMarketingSeo from "./pages/services/AffiliateMarketingSeo";
+import { ToastContainer } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
-    <Routes>
-      <Route element={<MainLayout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/our-team" element={<OurTeam />} />
-        <Route path="/careers" element={<Careers />} />
-        <Route path="/training" element={<Training />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/testimonials" element={<Testimonials />} />
-        <Route path="/ui-ux" element={<UIUX />} />
-        <Route path="/responsive-design" element={<ResponsiveDesign />} />
-        <Route path="/graphic-design" element={<GraphicDesign />} />
-        <Route path="/landing-design" element={<LandingDesign />} />
-        <Route path="/wordpress-design" element={<WordpressDesign />} />
-        <Route path="/cms-design" element={<CmsDesign />} />
-        <Route path="/ecom-design" element={<EcomDesign />} />
-        <Route path="/web-design" element={<WebDesign />} />
-        <Route path="/website-optimisation" element={<Website />} />
-        <Route path="/wordpress-maintainance" element={<WordPressMaintainance />} />
-        <Route path="/dental-marketing" element={<Dental />} />
-        <Route path="/skincare-marketing" element={<Skincare />} />
-        <Route path="/dental-marketing" element={<Dental />} />
-        <Route path="/skin-clinic-growth" element={<SkinClinicGrowth />} />
-        <Route path="/hotel-marketing" element={<HotelMarketing />} />
-        <Route path="/healthcare-marketing" element={<HealthcareMarketing />} />
-        <Route path="/real-estate-marketing" element={<RealEstateMarketing />} />
-        <Route path="/restaurant-seo" element={<RestaurantSeo />} />
-        <Route path="/google-ads" element={<GoogleAds />} />
-        <Route path="/social-media-ads" element={<SocialMediaAds />} />
-        <Route path="/youtube-marketing" element={<YoutubeMarketing />} />
-        <Route path="/linkedin-marketing" element={<LinkedinMarketing />} />
-        <Route path="/amazon-marketing" element={<AmazonMarketing />} />
-        <Route path="/affiliate-marketing" element={<AffiliateMarketing />} />
-        <Route path="/content-marketing" element={<ContentMarketing />} />
-        <Route path="/social-media-marketing" element={<SocialMedia />} />
-        <Route path="/online-reputation-management" element={<OnlineReputation />} />
-        <Route path="/label-seo" element={<LabelSeo />} />
-        <Route path="/white-label-seo" element={<WhiteLabelSeo />} />
-        <Route path="/ecommerce-seo" element={<EcommerceSeo />} />
-        <Route path="/dental-seo" element={<DentalSeo />} />
-        <Route path="/fashion-seo" element={<FashionSeo />} />
-        <Route path="/lacksmith-seo" element={<LacksmithSeo />} />
-        <Route path="/lawfirm-seo" element={<LawFirmSeo />} />
-        <Route path="/roofing-seo" element={<RoofingSeo />} />
-        <Route path="/realestate-seo" element={<RealestateSeo />} />
-        <Route path="/blockchain-seo" element={<BlockchainSeo />} />
-        <Route path="/content-seo" element={<ContentSeo />} />
-        <Route path="/affiliate-seo" element={<AffiliateMarketingSeoSeo />} />
-      </Route>
-    </Routes>
+    <>
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/our-team" element={<OurTeam />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/training" element={<Training />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/testimonials" element={<Testimonials />} />
+          <Route path="/ui-ux" element={<UIUX />} />
+          <Route path="/responsive-design" element={<ResponsiveDesign />} />
+          <Route path="/graphic-design" element={<GraphicDesign />} />
+          <Route path="/landing-design" element={<LandingDesign />} />
+          <Route path="/wordpress-design" element={<WordpressDesign />} />
+          <Route path="/cms-design" element={<CmsDesign />} />
+          <Route path="/ecom-design" element={<EcomDesign />} />
+          <Route path="/web-design" element={<WebDesign />} />
+          <Route path="/website-optimisation" element={<Website />} />
+          <Route
+            path="/wordpress-maintainance"
+            element={<WordPressMaintainance />}
+          />
+          <Route path="/dental-marketing" element={<Dental />} />
+          <Route path="/skincare-marketing" element={<Skincare />} />
+          <Route path="/dental-marketing" element={<Dental />} />
+          <Route path="/skin-clinic-growth" element={<SkinClinicGrowth />} />
+          <Route path="/hotel-marketing" element={<HotelMarketing />} />
+          <Route
+            path="/healthcare-marketing"
+            element={<HealthcareMarketing />}
+          />
+          <Route
+            path="/real-estate-marketing"
+            element={<RealEstateMarketing />}
+          />
+          <Route path="/restaurant-seo" element={<RestaurantSeo />} />
+          <Route path="/google-ads" element={<GoogleAds />} />
+          <Route path="/social-media-ads" element={<SocialMediaAds />} />
+          <Route path="/youtube-marketing" element={<YoutubeMarketing />} />
+          <Route path="/linkedin-marketing" element={<LinkedinMarketing />} />
+          <Route path="/amazon-marketing" element={<AmazonMarketing />} />
+          <Route path="/affiliate-marketing" element={<AffiliateMarketing />} />
+          <Route path="/content-marketing" element={<ContentMarketing />} />
+          <Route path="/social-media-marketing" element={<SocialMedia />} />
+          <Route
+            path="/online-reputation-management"
+            element={<OnlineReputation />}
+          />
+          <Route path="/label-seo" element={<LabelSeo />} />
+          <Route path="/white-label-seo" element={<WhiteLabelSeo />} />
+          <Route path="/ecommerce-seo" element={<EcommerceSeo />} />
+          <Route path="/dental-seo" element={<DentalSeo />} />
+          <Route path="/fashion-seo" element={<FashionSeo />} />
+          <Route path="/lacksmith-seo" element={<LacksmithSeo />} />
+          <Route path="/lawfirm-seo" element={<LawFirmSeo />} />
+          <Route path="/roofing-seo" element={<RoofingSeo />} />
+          <Route path="/realestate-seo" element={<RealestateSeo />} />
+          <Route path="/blockchain-seo" element={<BlockchainSeo />} />
+          <Route path="/content-seo" element={<ContentSeo />} />
+          <Route path="/affiliate-seo" element={<AffiliateMarketingSeo />} />
+        </Route>
+      </Routes>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        draggable
+        theme="light"
+      />
+    </>
   );
 };
 

@@ -1,17 +1,28 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { toast } from "react-toastify";
 
 const Contact = () => {
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phone: "",
     company: "",
-    service: "",
-    budget: "",
+    service: [],
+    budget: [],
     contactMethod: "",
     projectDetails: "",
   });
+
+  const handleMultiSelect = (field, value) => {
+    setFormData((prev) => ({
+      ...prev,
+      [field]: prev[field].includes(value)
+        ? prev[field].filter((item) => item !== value)
+        : [...prev[field], value],
+    }));
+  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,37 +31,57 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (formData.service.length === 0) {
+      toast.error("Please select at least one service.");
+      return;
+    }
+
+    if (formData.budget.length === 0) {
+      toast.error("Please select a budget range.");
+      return;
+    }
+
+    if (!formData.contactMethod) {
+      toast.error("Please select your preferred contact method.");
+      return;
+    }
+
     try {
+      setLoading(true);
+
       const response = await fetch(
-        "https://docs.google.com/spreadsheets/d/175pCsf-RXA1GBiflCqwedOA4aJW6CbgLbwBvpHJotBE/edit?usp=sharing",
+        "https://script.google.com/macros/s/AKfycbzP96mfiVgcSTISfueZxqFuzeIF6zGeLa6uUL3cpsTW2tExLBxPmxAEEgbjWjx-dZXv/exec",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
           body: JSON.stringify(formData),
+          redirect: "follow",
         },
       );
 
       const result = await response.json();
-
+console.log(result);
       if (result.success) {
-        alert("Message sent successfully!");
+        toast.success("Message sent successfully!");
+        console.log(result);
 
         setFormData({
           fullName: "",
           email: "",
           phone: "",
           company: "",
-          service: "",
-          budget: "",
+          service: [],
+          budget: [],
           contactMethod: "",
           projectDetails: "",
         });
+      } else {
+        toast.error("Failed to send message.");
       }
     } catch (error) {
-      console.error("ERROR:", error);
-      alert(error.message);
+      console.error(error);
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -79,9 +110,9 @@ const Contact = () => {
             </p>
 
             {/* Direct Contact Resource Vectors */}
-            <div className="flex flex-col gap-6.5">
+            <div className="flex flex-col gap-6">
               <div className="flex items-center gap-4 group">
-                <div className="w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-[#00b4af] group-hover:bg-white/10 transition-all">
+                <div className="w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-[#00b4af] group-hover:bg-white/10 transition-all duration-300">
                   <svg
                     className="w-5 h-5"
                     fill="none"
@@ -96,13 +127,16 @@ const Contact = () => {
                     />
                   </svg>
                 </div>
-                <span className="font-bold text-[15.5px] tracking-wide text-white/90 group-hover:text-white transition-colors">
+                <a
+                  href="tel:+19069706661"
+                  className="font-bold text-[15.5px] tracking-wide text-white/90 group-hover:text-white transition-colors"
+                >
                   (906) 970-6661
-                </span>
+                </a>
               </div>
 
               <div className="flex items-center gap-4 group">
-                <div className="w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-[#00b4af] group-hover:bg-white/10 transition-all">
+                <div className="w-11 h-11 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-[#00b4af] group-hover:bg-white/10 transition-all duration-300">
                   <svg
                     className="w-5 h-5"
                     fill="none"
@@ -117,9 +151,12 @@ const Contact = () => {
                     />
                   </svg>
                 </div>
-                <span className="font-bold text-[15.5px] tracking-wide text-white/90 group-hover:text-white transition-colors">
+                <a
+                  href="mailto:sales@wepromote.us"
+                  className="font-bold text-[15.5px] tracking-wide text-white/90 group-hover:text-white transition-colors"
+                >
                   sales@wepromote.us
-                </span>
+                </a>
               </div>
             </div>
           </div>
@@ -130,15 +167,15 @@ const Contact = () => {
               Global Execution Framework
             </span>
             <span className="text-[13px] text-slate-400 font-medium mt-1">
-              Serving clients across Duabi, US, UK, India, and Canada.
+              Serving clients across Dubai, US, UK, India, and Canada.
             </span>
           </div>
         </div>
 
-        {/* RIGHT COLUMN: HIGH-PARITY REVENUE LEAD CAPTURE FORM */}
-        <div className="lg:col-span-7 bg-[#f8fafc]/40 p-8 sm:p-12 md:p-16 flex flex-col justify-center">
+        {/* RIGHT COLUMN: REVENUE LEAD CAPTURE FORM */}
+        <div className="lg:col-span-7 bg-[#f8fafc]/60 p-8 sm:p-12 md:p-16 flex flex-col justify-center">
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Row 1 */}
+            {/* Row 1: Demographics data */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block mb-2 text-sm font-bold text-[#10223d]">
@@ -151,7 +188,7 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="John Smith"
                   required
-                  className="w-full h-14 px-5 rounded-xl border border-slate-200 bg-white text-[#10223d] font-medium focus:border-[#00b4af] focus:ring-4 focus:ring-[#00b4af]/10 outline-none transition"
+                  className="w-full h-14 px-5 rounded-xl border border-slate-200 bg-white text-[#10223d] font-medium focus:border-[#00b4af] focus:ring-4 focus:ring-[#00b4af]/10 outline-none transition duration-200"
                 />
               </div>
 
@@ -166,12 +203,12 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="john@company.com"
                   required
-                  className="w-full h-14 px-5 rounded-xl border border-slate-200 bg-white text-[#10223d] font-medium focus:border-[#00b4af] focus:ring-4 focus:ring-[#00b4af]/10 outline-none transition"
+                  className="w-full h-14 px-5 rounded-xl border border-slate-200 bg-white text-[#10223d] font-medium focus:border-[#00b4af] focus:ring-4 focus:ring-[#00b4af]/10 outline-none transition duration-200"
                 />
               </div>
             </div>
 
-            {/* Row 2 */}
+            {/* Row 2: Connections metrics */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block mb-2 text-sm font-bold text-[#10223d]">
@@ -183,7 +220,7 @@ const Contact = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="+1 (555) 123-4567"
-                  className="w-full h-14 px-5 rounded-xl border border-slate-200 bg-white text-[#10223d] font-medium focus:border-[#00b4af] focus:ring-4 focus:ring-[#00b4af]/10 outline-none transition"
+                  className="w-full h-14 px-5 rounded-xl border border-slate-200 bg-white text-[#10223d] font-medium focus:border-[#00b4af] focus:ring-4 focus:ring-[#00b4af]/10 outline-none transition duration-200"
                 />
               </div>
 
@@ -197,111 +234,190 @@ const Contact = () => {
                   value={formData.company}
                   onChange={handleChange}
                   placeholder="Your Company"
-                  className="w-full h-14 px-5 rounded-xl border border-slate-200 bg-white text-[#10223d] font-medium focus:border-[#00b4af] focus:ring-4 focus:ring-[#00b4af]/10 outline-none transition"
+                  className="w-full h-14 px-5 rounded-xl border border-slate-200 bg-white text-[#10223d] font-medium focus:border-[#00b4af] focus:ring-4 focus:ring-[#00b4af]/10 outline-none transition duration-200"
                 />
               </div>
             </div>
 
-            {/* Row 3 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block mb-2 text-sm font-bold text-[#10223d]">
-                  Service Needed *
-                </label>
-                <select
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  required
-                  className="w-full h-14 px-5 rounded-xl border border-slate-200 bg-white text-[#10223d] font-medium focus:border-[#00b4af] focus:ring-4 focus:ring-[#00b4af]/10 outline-none transition"
-                >
-                  <option value="">Select Service</option>
-                  <option>Website Development</option>
-                  <option>SEO</option>
-                  <option>Digital Marketing</option>
-                  <option>Brand Strategy</option>
-                  <option>Google Ads</option>
-                  <option>Other</option>
-                </select>
-              </div>
+            {/* Row 3: SERVICES SYSTEM CAPABILITIES SELECTION (Full Width Layout) */}
+            <div className="w-full">
+              <label className="flex items-center justify-between mb-3">
+                <span className="text-sm font-bold text-[#10223d]">
+                  Services Needed *
+                </span>
+                {formData.service.length > 0 && (
+                  <span className="text-xs font-bold text-[#00b4af] bg-[#00b4af]/10 px-2.5 py-0.5 rounded-md">
+                    {formData.service.length} Selected
+                  </span>
+                )}
+              </label>
 
-              <div>
-                <label className="block mb-2 text-sm font-bold text-[#10223d]">
-                  Monthly Budget *
-                </label>
-                <select
-                  name="budget"
-                  value={formData.budget}
-                  onChange={handleChange}
-                  required
-                  className="w-full h-14 px-5 rounded-xl border border-slate-200 bg-white text-[#10223d] font-medium focus:border-[#00b4af] focus:ring-4 focus:ring-[#00b4af]/10 outline-none transition"
-                >
-                  <option value="">Select Budget</option>
-                  <option>$500 - $1,000</option>
-                  <option>$1,000 - $3,000</option>
-                  <option>$3,000 - $5,000</option>
-                  <option>$5,000 - $10,000</option>
-                  <option>$10,000+</option>
-                </select>
+              <div className="flex flex-wrap gap-2.5">
+                {[
+                  "Website Development",
+                  "SEO",
+                  "Digital Marketing",
+                  "Google Ads",
+                  "UI/UX Design",
+                  "Brand Strategy",
+                  "E-Commerce",
+                  "Social Media Marketing",
+                ].map((service) => {
+                  const isSelected = formData.service.includes(service);
+                  return (
+                    <button
+                      type="button"
+                      key={service}
+                      onClick={() => handleMultiSelect("service", service)}
+                      className={`px-4 py-2.5 rounded-xl border text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-1.5 ${
+                        isSelected
+                          ? "bg-[#00b4af] border-[#00b4af] text-white shadow-md shadow-[#00b4af]/10"
+                          : "bg-white border-slate-200 text-slate-600 hover:border-[#00b4af]/40 hover:text-[#00b4af]"
+                      }`}
+                    >
+                      {isSelected && (
+                        <svg
+                          className="w-3.5 h-3.5 shrink-0"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      )}
+                      {service}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
-            {/* Preferred Contact */}
+            {/* Row 4: BUDGET MATRIX ARCHITECTURE (Full Width Layout) */}
+            <div className="w-full">
+              <label className="flex items-center justify-between mb-3">
+                <span className="text-sm font-bold text-[#10223d]">
+                  Budget Range *
+                </span>
+                {formData.budget.length > 0 && (
+                  <span className="text-xs font-bold text-[#10223d] bg-[#10223d]/5 px-2.5 py-0.5 rounded-md">
+                    {formData.budget.length} Selected
+                  </span>
+                )}
+              </label>
+
+              <div className="flex flex-wrap gap-2.5">
+                {[
+                  "$500 - $1,000",
+                  "$1,000 - $3,000",
+                  "$3,000 - $5,000",
+                  "$5,000 - $10,000",
+                  "$10,000+",
+                ].map((budget) => {
+                  const isSelected = formData.budget.includes(budget);
+                  return (
+                    <button
+                      type="button"
+                      key={budget}
+                      onClick={() => handleMultiSelect("budget", budget)}
+                      className={`px-4 py-2.5 rounded-xl border text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-1.5 ${
+                        isSelected
+                          ? "bg-[#10223d] border-[#10223d] text-white shadow-md"
+                          : "bg-white border-slate-200 text-slate-600 hover:border-[#10223d]/30 hover:text-[#10223d]"
+                      }`}
+                    >
+                      {isSelected && (
+                        <svg
+                          className="w-3.5 h-3.5 shrink-0"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      )}
+                      {budget}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Row 5: Preferred Contact Routing */}
             <div>
               <label className="block mb-3 text-sm font-bold text-[#10223d]">
                 Preferred Contact Method *
               </label>
 
               <div className="grid grid-cols-3 gap-3">
-                {["Call", "Email", "Any"].map((method) => (
-                  <label
-                    key={method}
-                    className={`h-14 rounded-xl border cursor-pointer flex items-center justify-center font-semibold transition ${
-                      formData.contactMethod === method
-                        ? "border-[#00b4af] bg-[#00b4af]/10 text-[#00b4af]"
-                        : "border-slate-200 bg-white text-slate-600"
-                    }`}
-                  >
-                    <input
-                      type="radio"
-                      name="contactMethod"
-                      value={method}
-                      checked={formData.contactMethod === method}
-                      onChange={handleChange}
-                      className="hidden"
-                    />
-                    {method}
-                  </label>
-                ))}
+                {["Call", "Email", "Any"].map((method) => {
+                  const isSelected = formData.contactMethod === method;
+                  return (
+                    <label
+                      key={method}
+                      className={`h-14 rounded-xl border cursor-pointer flex items-center justify-center text-sm font-bold transition duration-200 ${
+                        isSelected
+                          ? "border-[#00b4af] bg-[#00b4af]/5 text-[#00b4af]"
+                          : "border-slate-200 bg-white text-slate-500 hover:border-slate-300"
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="contactMethod"
+                        value={method}
+                        checked={isSelected}
+                        onChange={handleChange}
+                        className="hidden"
+                      />
+                      {method}
+                    </label>
+                  );
+                })}
               </div>
             </div>
 
-            {/* Project Details */}
+            {/* Row 6: Project Details Text Area */}
             <div>
               <label className="block mb-2 text-sm font-bold text-[#10223d]">
                 Project Details *
               </label>
-
               <textarea
                 name="projectDetails"
                 value={formData.projectDetails}
                 onChange={handleChange}
-                rows={6}
+                rows={5}
                 required
                 placeholder="Tell us about your business, goals, target audience, challenges, and project requirements..."
-                className="w-full rounded-xl border border-slate-200 bg-white p-5 text-[#10223d] font-medium focus:border-[#00b4af] focus:ring-4 focus:ring-[#00b4af]/10 outline-none resize-none transition"
+                className="w-full rounded-xl border border-slate-200 bg-white p-5 text-[#10223d] font-medium focus:border-[#00b4af] focus:ring-4 focus:ring-[#00b4af]/10 outline-none resize-none transition duration-200"
               />
             </div>
 
-            {/* CTA */}
+            {/* CTA Interaction Trigger Button */}
             <motion.button
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              type="submit"
-              className="w-full h-16 rounded-xl bg-[#00b4af] hover:bg-[#009691] text-white font-black tracking-[0.15em] uppercase transition-all shadow-[0_10px_30px_rgba(0,180,175,0.25)]"
-            >
-              Get Free Strategy Consultation
-            </motion.button>
+  whileHover={!loading ? { y: -2 } : {}}
+  whileTap={!loading ? { scale: 0.98 } : {}}
+  type="submit"
+  disabled={loading}
+  className="w-full h-16 rounded-xl bg-[#00b4af] hover:bg-[#009691] disabled:opacity-70 disabled:cursor-not-allowed text-white font-black tracking-[0.12em] text-sm uppercase transition-all shadow-[0_10px_30px_rgba(0,180,175,0.2)]"
+>
+  {loading ? (
+    <div className="flex items-center justify-center gap-3">
+      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+      Sending...
+    </div>
+  ) : (
+    "Get Free Strategy Consultation"
+  )}
+</motion.button>
           </form>
         </div>
       </div>

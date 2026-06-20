@@ -62,7 +62,7 @@ const ServiceSection = () => {
   ];
 
   return (
-    <section className="w-full bg-[#F8FAFC] py-28 px-6 md:px-12 lg:px-20 font-sans antialiased text-[#0F172A] relative">
+    <section id="services" className="w-full bg-[#F8FAFC] py-28 px-6 md:px-12 lg:px-20 font-sans antialiased text-[#0F172A] relative">
       <div className="max-w-6xl mx-auto space-y-12">
         
         {/* STRUCTURAL HEADER ROW */}

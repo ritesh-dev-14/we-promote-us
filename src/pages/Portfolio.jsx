@@ -1,17 +1,3 @@
-// import React from 'react'
-
-// const Portfolio = () => {
-//   return (
-//     <div>
-      
-//     </div>
-//   )
-// }
-
-// export default Portfolio
-
-
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -82,49 +68,43 @@ export default function PortfolioSection() {
     : PORTFOLIO_DATA.filter(project => project.category.toLowerCase() === activeCategory.toLowerCase());
 
   return (
-    <section className="w-full bg-[#F5F6FA] py-32 px-4 sm:px-8 md:px-16 lg:px-24 font-sans antialiased text-[#231F54] relative overflow-hidden">
+    <section className="w-full bg-[#FDFDFC] py-12 px-4 sm:px-8 md:px-16 lg:px-24 font-sans antialiased text-[#334155] relative overflow-hidden">
       
-      {/* Editorial Decorative Background Elements */}
-      <div className="absolute left-[-5%] top-[15%] w-[45rem] h-[45rem] rounded-full bg-gradient-to-tr from-[#74358C]/5 to-transparent blur-3xl pointer-events-none" />
-      <div className="absolute right-[-10%] bottom-[10%] w-[35rem] h-[35rem] rounded-full bg-gradient-to-br from-[#231F54]/5 to-transparent blur-3xl pointer-events-none" />
+      {/* Structural Framing Grid Divider Line */}
+    
 
       <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* Breadcrumbs */}
-        <nav className="flex items-center justify-center gap-2 text-xs uppercase tracking-widest text-gray-400 mb-4 font-semibold">
-          <a href="#home" className="hover:text-[#74358C] transition-colors duration-200">Home</a>
-          <span className="text-gray-300">/</span>
-          <span className="text-[#231F54]/60">Case Studies</span>
-        </nav>
+       
 
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-black tracking-tight text-[#231F54] mb-4 lg:leading-[1.1]">
-            Selected <span className="text-[#74358C] font-serif italic font-normal">Works</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter text-[#0F2C59] mb-4 leading-[0.95]">
+            Selected <span className="text-[#00B4AF]">Works.</span>
           </h2>
-          <p className="text-sm md:text-base text-gray-500 max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-[13px] text-slate-500 max-w-2xl mx-auto font-semibold leading-relaxed">
             A curated showcase of digital products, cloud architecture, and high-growth marketing strategies built to outperform market standards.
           </p>
         </div>
 
         {/* Premium Pill Dynamic Filter Container */}
         <div className="flex justify-center mb-20">
-          <div className="inline-flex items-center gap-1 bg-white/80 backdrop-blur-md p-1.5 rounded-full shadow-[0_10px_30px_rgba(35,31,84,0.04)] border border-gray-200/50 max-w-full overflow-x-auto scrollbar-none token-scroller">
+          <div className="inline-flex items-center gap-1 bg-white p-1.5 border border-slate-200 shadow-xs max-w-full overflow-x-auto scrollbar-none token-scroller">
             {PORTFOLIO_CATEGORIES.map((tab) => {
               const isActive = tab === activeCategory;
               return (
                 <button
                   key={tab}
                   onClick={() => setActiveCategory(tab)}
-                  className={`relative px-5 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap rounded-full ${
-                    isActive ? "text-white" : "text-gray-500 hover:text-[#231F54]"
+                  className={`relative px-5 py-2.5 text-[10px] font-black uppercase tracking-wider transition-all duration-300 whitespace-nowrap ${
+                    isActive ? "text-white" : "text-slate-500 hover:text-[#0F2C59]"
                   }`}
                 >
                   <span className="relative z-20">{tab}</span>
                   {isActive && (
                     <motion.div
                       layoutId="activePortfolioPill"
-                      className="absolute inset-0 bg-gradient-to-r from-[#74358C] to-[#231F54] rounded-full z-10 shadow-md shadow-[#74358C]/20"
+                      className="absolute inset-0 bg-[#00B4AF] z-10 rounded-full"
                       transition={{ type: 'spring', stiffness: 380, damping: 32 }}
                     />
                   )}
@@ -148,14 +128,14 @@ export default function PortfolioSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                 transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-                className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-[0_4px_30px_rgba(35,31,84,0.02)] border border-gray-200/60 hover:shadow-[0_40px_70px_-15px_rgba(35,31,84,0.15)] hover:border-gray-300 transition-all duration-500"
+                className="group flex flex-col bg-[#FDFDFC] border border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-500"
               >
                 {/* Image Section with Integrated Performance Banner */}
-                <div className="w-full aspect-[16/11] overflow-hidden relative bg-gray-950">
+                <div className="w-full aspect-[16/11] overflow-hidden relative bg-slate-950">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover scale-[1.01] group-hover:scale-[1.05] transition-transform duration-750 ease-out opacity-90 group-hover:opacity-100"
+                    className="w-full h-full object-cover scale-[1.01] group-hover:scale-[1.05] transition-transform duration-750 ease-out opacity-100 group-hover:opacity-100  group-hover:grayscale-0"
                     loading="lazy"
                   />
                   
@@ -164,49 +144,39 @@ export default function PortfolioSection() {
                   
                   {/* Client Identifier Label */}
                   <div className="absolute top-4 left-4 z-20">
-                    <span className="text-[10px] tracking-widest font-black uppercase text-white bg-[#231F54]/80 backdrop-blur-md px-3 py-1.5 rounded-md border border-white/10">
+                    <span className="text-[9px] tracking-widest font-black uppercase text-white bg-[#0F2C59]/90 border border-white/10 px-3 py-1.5">
                       {project.client}
                     </span>
                   </div>
 
                   {/* High Impact Core Data Metric Badge */}
-                  <div className="absolute bottom-4 right-4 z-20">
-                    <span className="text-[10px] tracking-wider font-bold uppercase text-white bg-gradient-to-r from-[#74358C] to-[#231F54] px-3 py-1.5 rounded-md shadow-lg">
-                      {project.metric}
-                    </span>
-                  </div>
+                  
                 </div>
 
                 {/* Text Content Block */}
-                <div className="p-7 flex-1 flex flex-col justify-between bg-white relative z-20">
+                <div className="p-7 flex-1 flex flex-col justify-between bg-[#FDFDFC] relative z-20">
                   <div>
                     {/* Category Hook */}
-                    <span className="text-[11px] font-bold text-[#74358C] uppercase tracking-widest block mb-2">
+                    <span className="text-[10px] font-black text-[#00B4AF] uppercase tracking-[0.2em] block mb-2">
                       {project.category}
                     </span>
                     
                     {/* Case Title */}
-                    <h3 className="text-xl font-bold tracking-tight text-[#231F54] group-hover:text-[#74358C] transition-colors duration-300 mb-4 leading-snug">
+                    <h3 className="text-[15px] font-black uppercase tracking-tight text-[#0F2C59] group-hover:text-[#00B4AF] transition-colors duration-300 mb-4 leading-tight">
                       {project.title}
                     </h3>
 
                     {/* Meta Architecture Tag Pills */}
                     <div className="flex flex-wrap gap-1.5 mb-6">
                       {project.tags.map((tag, idx) => (
-                        <span key={idx} className="text-[10px] bg-[#F5F6FA] text-gray-500 px-2.5 py-1 rounded font-medium border border-gray-200/40">
+                        <span key={idx} className="text-[10px] bg-[#F8F7FF] text-slate-500 px-2.5 py-1 font-bold border border-slate-100 uppercase tracking-wide">
                           {tag}
                         </span>
                       ))}
                     </div>
                   </div>
 
-                  {/* Case Study Bottom Trigger */}
-                  <div className="pt-4 border-t border-gray-100 flex items-center justify-between mt-auto">
-                    <div className="flex items-center gap-2 text-xs font-bold text-[#231F54] group-hover:text-[#74358C] transition-colors duration-300 uppercase tracking-widest">
-                      <span>View Case Study</span>
-                      <span className="text-sm transform transition-transform duration-300 group-hover:translate-x-1.5">→</span>
-                    </div>
-                  </div>
+               
                 </div>
 
               </motion.article>
@@ -219,9 +189,9 @@ export default function PortfolioSection() {
           <motion.div 
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-center py-24 bg-white/60 border border-dashed border-gray-300/80 rounded-2xl max-w-md mx-auto mt-12"
+            className="text-center py-24 bg-white border border-dashed border-slate-200 max-w-md mx-auto mt-12"
           >
-            <p className="text-gray-400 font-medium text-sm tracking-wide">No production assets deployed under this layer yet.</p>
+            <p className="text-slate-400 font-bold text-[11px] uppercase tracking-widest">No production assets deployed under this layer yet.</p>
           </motion.div>
         )}
 

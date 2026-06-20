@@ -1,14 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.jpeg";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Footer = () => {
   const quickLinks = [
-    { label: "Home", href: "/" },
-    { label: "About Us", href: "/about" },
-    { label: "Services", href: "/services" },
-    { label: "Case Studies", href: "/case-studies" },
-    { label: "Contact", href: "/contact" },
+    { label: "Home", href: "#home" },
+    { label: "About Us", href: "#about" },
+    { label: "Services", href: "#services" },
+    { label: "Case Studies", href: "#case-study" },
+    { label: "Contact", href: "#contact" },
   ];
 
   const services = [
@@ -38,19 +39,44 @@ const Footer = () => {
     },
   ];
 
+  const navigate = useNavigate();
+
+  const location = useLocation();
+
+  const handleScroll = (e, targetId) => {
+    e.preventDefault();
+
+    if (location.pathname !== "/") {
+      navigate("/", {
+        state: { scrollTo: targetId },
+      });
+    } else {
+      const element = document.getElementById(targetId);
+
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+
+          block: "start",
+        });
+      }
+    }
+  };
+
   return (
     <footer
-      style={{ 
-        backgroundColor: "#FDFCF7",
-        backgroundImage: "linear-gradient(rgba(16, 34, 61, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 34, 61, 0.03) 1px, transparent 1px)",
-        backgroundSize: "60px 60px"
+      style={{
+        backgroundColor: "#FFFFFF",
+        backgroundImage:
+          "linear-gradient(rgba(24, 47, 89, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(24, 47, 89, 0.02) 1px, transparent 1px)",
+        backgroundSize: "60px 60px",
       }}
-      className="w-full pt-32 pb-16 px-6 md:px-12 lg:px-24 font-sans antialiased select-none border-t border-[#10223D]/10 relative"
+      className="w-full pt-12 pb-10 px-6 md:px-12 lg:px-24 font-sans antialiased select-none border-t border-[#182f59]/10 relative"
     >
       <style>{`
-        /* Seamless Underline Interaction System mapping exactly to theme boundaries */
+        /* Seamless Underline Interaction System mapping exactly to your platform colors */
         .footer-brand-link {
-          color: #10223D;
+          color: #182f59;
           text-decoration: none;
           font-size: 14.5px;
           font-weight: 500;
@@ -66,13 +92,13 @@ const Footer = () => {
           left: 0;
           width: 100%;
           height: 1.5px;
-          background: #00B4AF;
+          background: #4cb1a1;
           transform: scaleX(0);
           transform-origin: right;
           transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .footer-brand-link:hover {
-          color: #00B4AF;
+          color: #4cb1a1;
         }
         .footer-brand-link:hover::after {
           transform: scaleX(1);
@@ -80,34 +106,34 @@ const Footer = () => {
         }
 
         .footer-social-pill {
-          color: #10223D;
+          color: #182f59;
           background-color: #FFFFFF;
-          border: 1px solid rgba(16, 34, 61, 0.08);
+          border: 1px solid rgba(24, 47, 89, 0.08);
           transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .footer-social-pill:hover {
           color: #FFFFFF;
-          background-color: #10223D;
-          border-color: #10223D;
+          background-color: #182f59;
+          border-color: #182f59;
         }
       `}</style>
 
       <div className="max-w-[1320px] mx-auto flex flex-col relative z-10">
-        
         {/* UPPER BRANDING LAYOUT GRID MAP */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 pb-24">
-          
           {/* COLUMN 1: CORPORATE MANIFESTO ABSTRACT (5 Grid Spans) */}
           <div className="md:col-span-5 flex flex-col items-start pr-0 lg:pr-12">
             <img
               src={logo}
               alt="We Promote"
-              className="h-9 object-contain mb-8"
+              className="h-25 object-contain mb-8"
             />
-            <p className="text-[#10223D]/70 font-medium text-[15px] leading-relaxed max-w-sm mb-8">
-              We deploy multi-channel systems across digital engineering, technical architecture, and customer acquisition to transform standard lead flows into predictable pipelines.
+            <p className="text-[#182f59]/70 font-medium text-[15px] leading-relaxed max-w-sm mb-8">
+              We deploy multi-channel systems across digital engineering,
+              technical architecture, and customer acquisition to transform
+              standard lead flows into predictable pipelines.
             </p>
-            
+
             {/* Minimal High-Contrast Interaction Icon Hub */}
             <div className="flex gap-3 items-center">
               {socialPlatforms.map((platform) => (
@@ -127,70 +153,92 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* COLUMN 2: INTERNAL PLATFORM LINKS */}
+          {/* COLUMN 2: INTERNAL PLATFORM LINKS WITH ID MAPPINGS & KINETIC HOVER SIGNALS */}
           <div className="md:col-span-2 flex flex-col items-start">
-            <span className="text-[#10223D]/40 text-xs font-bold uppercase tracking-[0.15em] block mb-6">
+            <span className="text-[#182f59]/40 text-xs font-bold uppercase tracking-[0.15em] block mb-6">
               Index
             </span>
             <ul className="space-y-4">
               {quickLinks.map((link, idx) => (
-                <li key={idx}>
-                  <a href={link.href} className="footer-brand-link">
+                <motion.li
+                  key={idx}
+                  whileHover={{ x: 4 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                >
+                  <a
+                    href={link.href}
+                    onClick={(e) => handleScroll(e, link.href.replace("#", ""))}
+                    className="footer-brand-link"
+                  >
                     {link.label}
                   </a>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>
 
-          {/* COLUMN 3: SYSTEM CAPABILITIES FRAMEWORK */}
+          {/* COLUMN 3: SYSTEM CAPABILITIES FRAMEWORK WITH MICRO-STAGGER ARRAYS */}
           <div className="md:col-span-3 flex flex-col items-start">
-            <span className="text-[#10223D]/40 text-xs font-bold uppercase tracking-[0.15em] block mb-6">
+            <span className="text-[#182f59]/40 text-xs font-bold uppercase tracking-[0.15em] block mb-6">
               Capabilities
             </span>
             <ul className="space-y-4">
               {services.map((service, idx) => (
-                <li key={idx} className="text-[#10223D] font-semibold text-[14.5px] tracking-tight">
+                <motion.li
+                  key={idx}
+                  whileHover={{ x: 4, color: "#4cb1a1" }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                  className="text-[#182f59] font-semibold text-[14.5px] tracking-tight cursor-default transition-colors duration-200"
+                >
                   {service}
-                </li>
+                </motion.li>
               ))}
             </ul>
           </div>
 
           {/* COLUMN 4: ENDPOINT NETWORKS COMMUNICATION */}
           <div className="md:col-span-2 flex flex-col items-start">
-            <span className="text-[#10223D]/40 text-xs font-bold uppercase tracking-[0.15em] block mb-6">
+            <span className="text-[#182f59]/40 text-xs font-bold uppercase tracking-[0.15em] block mb-6">
               Connections
             </span>
             <div className="space-y-4 flex flex-col items-start">
-              <a href="tel:+19069706661" className="footer-brand-link font-mono tracking-tight text-[15px]">
+              <motion.a
+                href="tel:+19069706661"
+                whileHover={{ x: 4 }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                className="footer-brand-link font-mono tracking-tight text-[15px]"
+              >
                 (906) 970-6661
-              </a>
-              <a href="mailto:sales@wepromote.us" className="footer-brand-link text-[15px]">
+              </motion.a>
+              <motion.a
+                href="mailto:sales@wepromote.us"
+                whileHover={{ x: 4 }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                className="footer-brand-link text-[15px]"
+              >
                 sales@wepromote.us
-              </a>
-              <p className="text-[#10223D]/60 text-xs font-medium leading-relaxed pt-2">
-                Deployments actively maintained across USA, Canada, UAE, UK, and India.
+              </motion.a>
+              <p className="text-[#182f59]/60 text-xs font-medium leading-relaxed pt-2">
+                Deployments actively maintained across USA, Canada, UAE, UK, and
+                India.
               </p>
             </div>
           </div>
-
         </div>
 
         {/* LOWER SHELF LEVEL FRAME CLOSURE */}
-        <div className="border-t border-[#10223D]/10 pt-10 flex flex-col sm:flex-row justify-between items-center gap-4">
-          
+        <div className="border-t border-[#182f59]/10 pt-10 flex flex-col sm:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00B4AF]" />
-            <p className="text-[#10223D]/50 text-xs font-bold uppercase tracking-wider">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#4cb1a1]" />
+            <p className="text-[#182f59]/50 text-xs font-bold uppercase tracking-wider">
               © {new Date().getFullYear()} We Promote. All rights reserved.
             </p>
           </div>
 
-          <p className="text-[#10223D]/80 text-xs font-extrabold uppercase tracking-widest bg-[#10223D]/5 px-3.5 py-1.5 rounded-md">
-            Built for Growth <span className="text-[#00B4AF] mx-1">•</span> Designed for Results
+          <p className="text-[#182f59]/80 text-xs font-extrabold uppercase tracking-widest bg-[#182f59]/5 px-3.5 py-1.5 rounded-md">
+            Built for Growth <span className="text-[#4cb1a1] mx-1">•</span>{" "}
+            Designed for Results
           </p>
-
         </div>
       </div>
     </footer>
