@@ -46,6 +46,7 @@ import BlockchainSeo from "./pages/services/BlockchainSeo";
 import ContentSeo from "./pages/services/ContentSeo";
 import AffiliateMarketingSeo from "./pages/services/AffiliateMarketingSeo";
 import { ToastContainer } from "react-toastify";
+import AboutUs from "./pages/AboutUs"
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -112,6 +113,7 @@ const App = () => {
           <Route path="/blockchain-seo" element={<BlockchainSeo />} />
           <Route path="/content-seo" element={<ContentSeo />} />
           <Route path="/affiliate-seo" element={<AffiliateMarketingSeo />} />
+          <Route path="/about-us" element={<AboutUs />} />
         </Route>
       </Routes>
       <ToastContainer

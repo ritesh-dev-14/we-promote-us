@@ -222,13 +222,21 @@ const Navbar = () => {
             className="h-20 lg:h-20 object-contain"
           />
         </div>
+        
 
         {/* Desktop Anchor Navigation Link Tree */}
         <nav className="hidden lg:flex items-center space-x-7 xl:space-x-9 text-[13.5px] font-bold text-slate-700 tracking-wide">
+          <Link
+            to="/about-us"
+            className="hover:text-[#00b4af] transition-colors duration-200"
+          >
+            About
+          </Link>
           <div
             className="relative h-[90px] flex items-center cursor-pointer"
             onMouseEnter={() => setActiveMenu("services")}
           >
+            
             <span
               className={`transition-colors duration-200 ${activeMenu === "services" ? "text-[#00b4af]" : "hover:text-[#00b4af]"}`}
             >
@@ -239,43 +247,9 @@ const Navbar = () => {
             />
           </div>
 
-          <div
-            className="relative h-[90px] flex items-center cursor-pointer"
-            onMouseEnter={() => setActiveMenu("about")}
-          >
-            <span
-              className={`transition-colors duration-200 ${activeMenu === "about" ? "text-[#00b4af]" : "hover:text-[#00b4af]"}`}
-            >
-              ABOUT
-            </span>
-            <HiChevronDown
-              className={`w-4 h-4 ml-1 transition-transform duration-200 ${activeMenu === "about" ? "rotate-180 text-[#00b4af]" : "text-slate-400"}`}
-            />
+          
 
-            {/* Simple Inline About Dropdown Panel */}
-            <AnimatePresence>
-              {activeMenu === "about" && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ duration: 0.12, ease: "easeOut" }}
-                  className="absolute left-0 top-[90px] w-[190px] bg-white border border-slate-100 shadow-xl py-1.5 flex flex-col text-[12.5px] font-bold text-slate-600 rounded-b-md border-t-2 border-t-[#00b4af]"
-                >
-                  {aboutLinks.map((item) => (
-                    <Link
-                      key={item.label}
-                      to={item.path}
-                      className="px-5 py-2.5 hover:bg-slate-50 hover:text-[#00b4af] transition-colors border-l-2 border-transparent hover:border-[#00b4af] tracking-wide"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
+          
           <Link
             to="/blog"
             className="hover:text-[#00b4af] transition-colors duration-200"
@@ -426,7 +400,15 @@ const Navbar = () => {
             transition={{ duration: 0.25, ease: "easeInOut" }}
             className="w-full bg-white border-t border-slate-100 lg:hidden overflow-hidden absolute left-0 right-0 top-[70px] shadow-2xl z-40"
           >
+            
             <div className="px-6 py-8 flex flex-col space-y-5 max-h-[85vh] overflow-y-auto">
+              <Link
+                to="/about-us"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-[15px] font-black tracking-wide text-slate-800 uppercase border-b border-slate-50 pb-2"
+              >
+                About
+              </Link>
               {/* ACCORDION NODE: MOBILE SERVICES */}
               <div className="flex flex-col border-b border-slate-50 pb-2">
                 <button
@@ -439,6 +421,8 @@ const Navbar = () => {
                   />
                 </button>
 
+                
+
                 {mobileServicesOpen && (
                   <div className="mt-4 pl-2 flex flex-col space-y-6 border-l-2 border-[#00b4af]/20">
                     {Object.keys(serviceContent).map((tabKey) => (
@@ -446,9 +430,11 @@ const Navbar = () => {
                         <h4 className="text-[11px] font-black tracking-widest text-[#00b4af] uppercase bg-[#00b4af]/5 px-2.5 py-1 rounded inline-block">
                           {tabKey}
                         </h4>
+                        
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
                           <div>
+                            
                             <h5 className="text-[13px] font-bold text-slate-900 mb-2">
                               {serviceContent[tabKey].col1Title}
                             </h5>
@@ -496,35 +482,9 @@ const Navbar = () => {
                 )}
               </div>
 
-              {/* ACCORDION NODE: MOBILE ABOUT */}
-              <div className="flex flex-col border-b border-slate-50 pb-2">
-                <button
-                  onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
-                  className="w-full flex justify-between items-center text-left text-[15px] font-black tracking-wide text-slate-800 uppercase"
-                >
-                  <span>About We Promote</span>
-                  <HiChevronDown
-                    className={`w-5 h-5 text-slate-500 transition-transform duration-200 ${mobileAboutOpen ? "rotate-180 text-[#00b4af]" : ""}`}
-                  />
-                </button>
-
-                {mobileAboutOpen && (
-                  <div className="mt-2 pl-3 flex flex-col space-y-3 pt-1 text-[13.5px] font-semibold text-slate-600">
-                    {aboutLinks.map((item) => (
-                      <Link
-                        key={item.label}
-                        to={item.path}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="hover:text-[#00b4af] transition-colors py-1"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
 
               {/* STATIC MOBILE LINK ANCHORS */}
+              
               <Link
                 to="/blog"
                 onClick={() => setMobileMenuOpen(false)}
@@ -532,6 +492,7 @@ const Navbar = () => {
               >
                 BLOG
               </Link>
+              
               <Link
                 to="/portfolio"
                 onClick={() => setMobileMenuOpen(false)}
